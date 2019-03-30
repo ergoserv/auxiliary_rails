@@ -1,15 +1,13 @@
 # AuxiliaryRails
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/auxiliary_rails`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Collection of classes, configs, scripts, generators for Ruby on Rails helping you get things done, better.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'auxiliary_rails'
+gem 'auxiliary_rails', git: 'https://github.com/ergoserv/auxiliary_rails'
 ```
 
 And then execute:
@@ -22,7 +20,11 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```sh
+# avaliable generators
+rails g auxiliary_rails:install_errors
+rails g auxiliary_rails:install_rubocop
+```
 
 ## Development
 
@@ -32,8 +34,16 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/auxiliary_rails.
+Bug reports and pull requests are welcome on GitHub at https://github.com/ergoserv/auxiliary_rails.
 
 ## License
 
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+
+-------------------------------------------------------------------------------
+
+[![alt text](https://raw.githubusercontent.com/ergoserv/auxiliary_rails/master/assets/ErgoServ_horizontalColor@sign+text+bg.png "ErgoServ - Web and Mobile Development Company")](https://www.ergoserv.com)
+
+This gem was created and is maintained by [ErgoServ](https://www.ergoserv.com).
+
+If you like what you see and would like to hire us or join us, [get in touch](https://www.ergoserv.com)!

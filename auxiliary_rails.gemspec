@@ -9,16 +9,14 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Dmitry Babenko"]
   spec.email         = ["dmitry@ergoserv.com"]
 
-  spec.summary       = %q{auxiliary_rails provides extra layers and utils for helping to build solid and clean Ruby on Rails applications}
-  # spec.description   = %q{TODO: Write a longer description or delete this line.}
+  spec.summary       = %q{AuxiliaryRails provides extra layers and utils for helping to build solid and clean Ruby on Rails applications}
+  spec.description   = %q{AuxiliaryRails is a collection of classes, configs, scripts, generators for Ruby on Rails helping you get things done, better.}
   spec.homepage      = "https://github.com/ergoserv/auxiliary_rails"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
   if spec.respond_to?(:metadata)
-    spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
-
     spec.metadata["homepage_uri"] = "https://github.com/ergoserv/auxiliary_rails"
     spec.metadata["source_code_uri"] = "https://github.com/ergoserv/auxiliary_rails"
     spec.metadata["changelog_uri"] = "https://github.com/ergoserv/auxiliary_rails/blob/master/CHANGELOG.md"
