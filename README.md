@@ -2,6 +2,10 @@
 
 Collection of classes, configs, scripts, generators for Ruby on Rails helping you get things done, better.
 
+[![Gem](https://img.shields.io/gem/v/auxiliary_rails.svg)](https://rubygems.org/gems/auxiliary_rails)
+[![Build Status](https://travis-ci.org/ergoserv/auxiliary_rails.svg?branch=master)](https://travis-ci.org/ergoserv/auxiliary_rails)
+[![Maintainability](https://api.codeclimate.com/v1/badges/a317c4893a804ce577ab/maintainability)](https://codeclimate.com/github/ergoserv/auxiliary_rails/maintainability)
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -20,10 +24,18 @@ Or install it yourself as:
 
 ## Usage
 
+### Generators
+
 ```sh
-# avaliable generators
-rails g auxiliary_rails:install_errors
-rails g auxiliary_rails:install_rubocop
+rails generate auxiliary_rails:install_errors
+rails generate auxiliary_rails:install_rubocop
+```
+
+### View Helpers
+
+```ruby
+current_controller?(*ctrl_names)
+current_action?(*action_names)
 ```
 
 ## Development
