@@ -1,5 +1,9 @@
 # AuxiliaryRails Changelog
 
+## v0.1.2
+
+* Fix Gemfile.lock
+
 ## v0.1.1
 
 * View Helpers: `current_controller?` and `current_action?`
