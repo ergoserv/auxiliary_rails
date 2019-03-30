@@ -1,6 +1,11 @@
-inherit_from:
-  - config/rubocop.yml
-
 AllCops:
   Exclude:
     - 'auxiliary_rails.gemspec'
+
+#################### Style ###############################
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false

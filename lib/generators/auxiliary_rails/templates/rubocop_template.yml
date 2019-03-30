@@ -1,2 +1,2 @@
-inherit_gem:
-  auxiliary_rails: config/rubocop.yml
+inherit_from:
+  - .rubocop_auxiliary_rails.yml

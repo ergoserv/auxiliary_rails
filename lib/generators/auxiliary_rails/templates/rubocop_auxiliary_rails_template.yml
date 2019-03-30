@@ -1,5 +1,6 @@
-# ErgoServ Code Style
-# Version: 2019-03-21
+# AuxiliaryRails Rubocop Config
+# Homepage: https://github.com/ergoserv/auxiliary_rails
+# Version: 1
 
 AllCops:
   Exclude:
