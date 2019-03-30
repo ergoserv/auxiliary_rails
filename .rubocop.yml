@@ -1,2 +1,6 @@
 inherit_from:
   - config/rubocop.yml
+
+AllCops:
+  Exclude:
+    - 'auxiliary_rails.gemspec'

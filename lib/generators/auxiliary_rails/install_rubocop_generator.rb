@@ -5,12 +5,12 @@ module AuxiliaryRails
     source_root File.expand_path('templates', __dir__)
 
     def copy_config_file
-      copy_file "rubocop_template.yml", ".rubocop.yml"
+      copy_file 'rubocop_template.yml', '.rubocop.yml'
     end
 
     def specify_gem_dependency
       gem_group :development, :test do
-        gem "rubocop"
+        gem 'rubocop'
       end
     end
   end
