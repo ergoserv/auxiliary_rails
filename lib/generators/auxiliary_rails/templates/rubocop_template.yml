@@ -1,0 +1,2 @@
+inherit_gem:
+  auxiliary_rails: config/rubocop.yml
