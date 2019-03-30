@@ -20,10 +20,18 @@ Or install it yourself as:
 
 ## Usage
 
+### Generators
+
 ```sh
-# avaliable generators
-rails g auxiliary_rails:install_errors
-rails g auxiliary_rails:install_rubocop
+rails generate auxiliary_rails:install_errors
+rails generate auxiliary_rails:install_rubocop
+```
+
+### View Helpers
+
+```ruby
+current_controller?(*ctrl_names)
+current_action?(*action_names)
 ```
 
 ## Development
