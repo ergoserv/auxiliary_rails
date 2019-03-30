@@ -1,6 +1,7 @@
 AllCops:
   Exclude:
-    - 'auxiliary_rails.gemspec'
+    - auxiliary_rails.gemspec
+    - vendor/bundle/**/* # fix for running on Travis CI
 
 #################### Style ###############################
 
