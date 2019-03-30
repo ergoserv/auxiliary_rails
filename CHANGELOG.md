@@ -1,5 +1,12 @@
 # AuxiliaryRails Changelog
 
+## v0.1.3
+
+* Upgrate `rubocop` gem and its configs
+* `rubocop-rspec` and `rubocop-performance` gem itegration
+* Added basic Rails application template
+* CLI with `create_rails_app` command
+
 ## v0.1.2
 
 * Fix Gemfile.lock

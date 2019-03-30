@@ -31,8 +31,16 @@ Or install it yourself as:
 
 ### Rails Application Templates
 
+Install gem into the system (e.g. using `gem install auxiliary_rails`) then:
+
 ```sh
-rails new app_name --skip-action-cable --skip-coffee --skip-test --database=postgresql --template=https://raw.githubusercontent.com/ergoserv/auxiliary_rails/develop/templates/rails/template.rb
+auxiliary_rails APP_PATH
+```
+
+Or use `rails new` command specifying `--template` argument:
+
+```sh
+rails new APP_PATH --skip-action-cable --skip-coffee --skip-test --database=postgresql --template=https://raw.githubusercontent.com/ergoserv/auxiliary_rails/develop/templates/rails/template.rb
 ```
 
 ### Generators
