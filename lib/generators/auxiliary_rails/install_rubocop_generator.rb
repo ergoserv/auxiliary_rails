@@ -6,9 +6,9 @@ module AuxiliaryRails
 
     def copy_config_files
       copy_file 'rubocop_template.yml',
-                '.rubocop.yml'
+        '.rubocop.yml'
       copy_file 'rubocop_auxiliary_rails_template.yml',
-                '.rubocop_auxiliary_rails.yml'
+        '.rubocop_auxiliary_rails.yml'
     end
 
     def specify_gem_dependency

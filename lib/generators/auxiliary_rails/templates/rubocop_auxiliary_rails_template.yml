@@ -1,6 +1,6 @@
 # AuxiliaryRails Rubocop Config
 # Homepage: https://github.com/ergoserv/auxiliary_rails
-# Version: 1
+# Version: 2
 
 AllCops:
   Exclude:
@@ -8,6 +8,12 @@ AllCops:
     - 'db/schema.rb'
     - 'db/migrate/*'
     - 'vendor/**/*'
+
+#################### Layout ###############################
+
+Layout/AlignParameters:
+  EnforcedStyle: with_fixed_indentation
+
 
 #################### Metrics ###############################
 
@@ -19,7 +25,7 @@ Metrics/MethodLength:
 Rails:
   Enabled: true
 
-#################### Style ###############################
+#################### Style #################################
 
 Style/Documentation:
   Enabled: false

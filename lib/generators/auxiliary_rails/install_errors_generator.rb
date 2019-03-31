@@ -6,7 +6,7 @@ module AuxiliaryRails
 
     def copy_application_error_file
       copy_file 'application_error_template.rb',
-                'app/errors/application_error.rb'
+        'app/errors/application_error.rb'
     end
   end
 end
