@@ -8,10 +8,14 @@ Collection of classes, configs, scripts, generators for Ruby on Rails helping yo
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Add one of these lines to your application's Gemfile:
 
 ```ruby
+gem 'auxiliary_rails'
+# or
 gem 'auxiliary_rails', git: 'https://github.com/ergoserv/auxiliary_rails'
+# or
+gem 'auxiliary_rails', github: 'ergoserv/auxiliary_rails', branch: 'develop'
 ```
 
 And then execute:
