@@ -1,0 +1,35 @@
+module <%= api_module_name %>::Resources
+  class <%= plural_name.camelize %>Resource < Grape::API
+    resource :<%= plural_name %> do
+      desc 'Creates a <%= class_name %>'
+      params do
+        requires :<%= singular_name %>, type: Hash do
+          # TODO: define resource params or remove `params` block
+        end
+      end
+      post do
+        # TODO: create resource or remove `post` block
+      end
+
+      desc 'Returns resource collection'
+      get do
+        # TODO: get resource collection or remove `get` block
+      end
+
+      params do
+        requires :id, type: Integer, desc: '<%= class_name %> ID'
+      end
+      route_param :id do
+        desc 'Returns a <%= class_name %>'
+        get do
+          # TODO: get resource or remove `get` block
+        end
+
+        desc 'Deletes a <%= class_name %>'
+        delete do
+          # TODO: delete resource or remove `delete` block
+        end
+      end
+    end
+  end
+end

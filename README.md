@@ -31,6 +31,7 @@ Or install it yourself as:
 ### Generators
 
 ```sh
+rails generate auxiliary_rails:api_resource
 rails generate auxiliary_rails:install_errors
 rails generate auxiliary_rails:install_rubocop
 ```
