@@ -12,9 +12,9 @@ Add one of these lines to your application's Gemfile:
 
 ```ruby
 gem 'auxiliary_rails'
-# or
+# or latest version from repository
 gem 'auxiliary_rails', git: 'https://github.com/ergoserv/auxiliary_rails'
-# or
+# or from a specific branch
 gem 'auxiliary_rails', github: 'ergoserv/auxiliary_rails', branch: 'develop'
 ```
 
