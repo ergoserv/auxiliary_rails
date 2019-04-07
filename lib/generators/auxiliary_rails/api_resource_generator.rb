@@ -55,5 +55,9 @@ module AuxiliaryRails
       api_name += "-#{options[:api_module]}" if options[:api_module] != 'app'
       "/#{api_name}/v#{options[:api_version]}/#{plural_name}"
     end
+
+    def entity_class_name
+      "#{api_module_name}::Entities::#{class_name}Entity"
+    end
   end
 end

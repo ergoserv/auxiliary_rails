@@ -1,6 +1,17 @@
 module <%= api_module_name %>::Resources
   class <%= plural_name.camelize %>Resource < Grape::API
     resource :<%= plural_name %> do
+      helpers do
+        def collection
+          # TODO: add `policy_scope`?
+          @<%= plural_name %> ||= <%= class_name %>.all
+        end
+
+        def resource
+          @<%= singular_name %> ||= <%= class_name %>.find(params[:id])
+        end
+      end
+
       desc 'Creates a <%= class_name %>'
       params do
         requires :<%= singular_name %>, type: Hash do
@@ -8,12 +19,18 @@ module <%= api_module_name %>::Resources
         end
       end
       post do
-        # TODO: create resource or remove `post` block
+        @<%= singular_name %> = <%= class_name %>.new(declared(params)[:<%= singular_name %>])
+        # TODO: authorize resource, :create?
+        resource.save!
+        present resource,
+          with: <%= entity_class_name %>
       end
 
       desc 'Returns resource collection'
       get do
-        # TODO: get resource collection or remove `get` block
+        # TODO: authorize resource, :index?
+        present collection,
+          with: <%= entity_class_name %>
       end
 
       params do
@@ -22,12 +39,30 @@ module <%= api_module_name %>::Resources
       route_param :id do
         desc 'Returns a <%= class_name %>'
         get do
-          # TODO: get resource or remove `get` block
+          # TODO: authorize resource, :show?
+          present resource,
+            with: <%= entity_class_name %>
+        end
+
+        desc 'Updates a <%= class_name %>'
+        params do
+          requires :<%= singular_name %>, type: Hash do
+            # TODO: define resource params or remove `params` block
+          end
+        end
+        put do
+          resource.assign_attributes(declared(params)[:<%= singular_name %>])
+          # TODO: authorize resource, :update?
+          resource.save!
+          present resource,
+            with: <%= entity_class_name %>
         end
 
         desc 'Deletes a <%= class_name %>'
         delete do
-          # TODO: delete resource or remove `delete` block
+          # TODO: authorize resource, :destroy?
+          resource.destroy!
+          body false
         end
       end
     end
