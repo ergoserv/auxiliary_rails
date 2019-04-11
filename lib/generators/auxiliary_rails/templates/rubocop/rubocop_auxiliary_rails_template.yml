@@ -1,6 +1,6 @@
 # AuxiliaryRails Rubocop Config
 # Homepage: https://github.com/ergoserv/auxiliary_rails
-# Version: 2
+# Version: 3
 
 AllCops:
   Exclude:
@@ -13,7 +13,6 @@ AllCops:
 
 Layout/AlignParameters:
   EnforcedStyle: with_fixed_indentation
-
 
 #################### Metrics ###############################
 
@@ -32,3 +31,9 @@ Style/Documentation:
 
 Style/FrozenStringLiteralComment:
   Enabled: false
+
+Style/IfUnlessModifier:
+  Enabled: false
+
+Style/NegatedIf:
+  EnforcedStyle: postfix
