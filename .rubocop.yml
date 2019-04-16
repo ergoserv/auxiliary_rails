@@ -1,10 +1,21 @@
+require:
+  - rubocop-rspec
+
 AllCops:
   Exclude:
     - auxiliary_rails.gemspec
     - vendor/bundle/**/* # fix for running on Travis CI
 
+#################### Layout ##############################
+
 Layout/AlignParameters:
   EnforcedStyle: with_fixed_indentation
+
+#################### Metrics ##############################
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*_spec.rb'
 
 #################### Style ###############################
 

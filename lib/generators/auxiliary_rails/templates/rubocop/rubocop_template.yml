@@ -1,2 +1,5 @@
+require:
+  - rubocop-rspec
+
 inherit_from:
   - .rubocop_auxiliary_rails.yml

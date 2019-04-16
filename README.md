@@ -33,6 +33,7 @@ Or install it yourself as:
 ```sh
 rails generate auxiliary_rails:install_errors
 rails generate auxiliary_rails:install_rubocop
+rails generate auxiliary_rails:install_rubocop --no-specify-gems
 ```
 
 ### View Helpers

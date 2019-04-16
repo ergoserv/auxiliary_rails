@@ -1,6 +1,6 @@
 # AuxiliaryRails Rubocop Config
 # Homepage: https://github.com/ergoserv/auxiliary_rails
-# Version: 3
+# Version: 4
 
 AllCops:
   Exclude:
@@ -23,6 +23,11 @@ Metrics/MethodLength:
 
 Rails:
   Enabled: true
+
+#################### RSpec #################################
+
+RSpec/NamedSubject:
+  Enabled: false
 
 #################### Style #################################
 
