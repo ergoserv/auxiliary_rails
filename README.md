@@ -36,6 +36,7 @@ rails generate auxiliary_rails:install_errors
 rails generate auxiliary_rails:install_eslint
 rails generate auxiliary_rails:install_rubocop
 rails generate auxiliary_rails:install_rubocop --no-specify-gems
+rails generate auxiliary_rails:install_stylelint
 ```
 
 ### View Helpers
