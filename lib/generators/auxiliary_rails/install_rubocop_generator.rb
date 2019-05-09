@@ -20,6 +20,7 @@ module AuxiliaryRails
 
       gem_group :development, :test do
         gem 'rubocop'
+        gem 'rubocop-performance'
         gem 'rubocop-rspec'
       end
     end

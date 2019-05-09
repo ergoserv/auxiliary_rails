@@ -1,4 +1,5 @@
 require:
+  - rubocop-performance
   - rubocop-rspec
 
 AllCops:
@@ -8,7 +9,7 @@ AllCops:
 
 #################### Layout ##############################
 
-Layout/AlignParameters:
+Layout/AlignArguments:
   EnforcedStyle: with_fixed_indentation
 
 #################### Metrics ##############################
