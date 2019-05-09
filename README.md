@@ -32,7 +32,7 @@ Or install it yourself as:
 ### Rails Application Templates
 
 ```sh
-rails new app_name --skip-action-cable --skip-coffee --skip-test --skip-bundle -m https://raw.githubusercontent.com/ergoserv/auxiliary_rails/develop/templates/rails/template.rb
+rails new app_name --skip-action-cable --skip-coffee --skip-test --database=postgresql --template=https://raw.githubusercontent.com/ergoserv/auxiliary_rails/develop/templates/rails/template.rb
 ```
 
 ### Generators
