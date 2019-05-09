@@ -29,6 +29,12 @@ Or install it yourself as:
 
 ## Usage
 
+### Rails Application Templates
+
+```sh
+rails new app_name --skip-action-cable --skip-coffee --skip-test --skip-bundle -m https://raw.githubusercontent.com/ergoserv/auxiliary_rails/develop/templates/rails/template.rb
+```
+
 ### Generators
 
 ```sh
