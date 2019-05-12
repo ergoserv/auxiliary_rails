@@ -4,20 +4,33 @@ module AuxiliaryRails
   class CLI < Thor
     include Thor::Actions
 
-    RAILS_APP_TEMPLATE =
-      File.expand_path("#{__dir__}/../../templates/rails/template.rb")
+    TEMPLATES_DIR =
+      File.expand_path("#{__dir__}/../../templates/")
 
-    desc 'create_rails_app APP_PATH', 'Create Rails application from template'
+    desc 'new APP_PATH', 'Create Rails application from template'
     long_desc <<-LONGDESC
-      Creates Rails application from template:
-      #{RAILS_APP_TEMPLATE}
+      Create Rails application from the specified template.
+      Works like a wrapper for `rails new` command.
 
-      Example: auxiliary_rails create_rails_app ~/Code/weblog
+      Example: auxiliary_rails new ~/Code/weblog
     LONGDESC
-    def create_rails_app(app_path)
+    option :database,
+      default: 'postgresql',
+      type: :string
+    option :template_name,
+      default: 'elementary',
+      type: :string
+    def new(app_path)
       run "rails new #{app_path} " \
-        '--skip-action-cable --skip-coffee --skip-test --database=postgresql ' \
-        "--template=#{RAILS_APP_TEMPLATE}"
+        '--skip-action-cable --skip-coffee --skip-test ' \
+        "--database=#{options[:database]} " \
+        "--template=#{rails_template_path(options[:template_name])}"
+    end
+
+    private
+
+    def rails_template_path(template_name)
+      "#{TEMPLATES_DIR}/rails/#{template_name}.rb"
     end
   end
 end
