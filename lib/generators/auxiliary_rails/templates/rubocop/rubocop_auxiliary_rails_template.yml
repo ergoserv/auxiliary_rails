@@ -42,3 +42,6 @@ Style/IfUnlessModifier:
 
 Style/NegatedIf:
   EnforcedStyle: postfix
+
+Style/RescueStandardError:
+  EnforcedStyle: implicit 
