@@ -1,6 +1,6 @@
 # AuxiliaryRails RuboCop Config
 # Homepage: https://github.com/ergoserv/auxiliary_rails
-# Version: 5
+# Version: 6
 
 AllCops:
   Exclude:
@@ -45,4 +45,4 @@ Style/NegatedIf:
   EnforcedStyle: postfix
 
 Style/RescueStandardError:
-  EnforcedStyle: implicit 
+  EnforcedStyle: implicit
