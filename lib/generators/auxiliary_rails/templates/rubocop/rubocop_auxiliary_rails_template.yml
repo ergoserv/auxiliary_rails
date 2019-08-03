@@ -1,6 +1,6 @@
 # AuxiliaryRails RuboCop Config
 # Homepage: https://github.com/ergoserv/auxiliary_rails
-# Version: 6
+# Version: 7
 
 AllCops:
   Exclude:
@@ -41,8 +41,12 @@ Style/FrozenStringLiteralComment:
 Style/IfUnlessModifier:
   Enabled: false
 
+
 Style/NegatedIf:
   EnforcedStyle: postfix
+
+Style/NumericPredicate:
+  EnforcedStyle: comparison
 
 Style/RescueStandardError:
   EnforcedStyle: implicit
