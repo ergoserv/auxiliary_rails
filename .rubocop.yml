@@ -17,9 +17,8 @@ Layout/AlignArguments:
 #################### Metrics ##############################
 
 Metrics/BlockLength:
-  Exclude:
-    - auxiliary_rails.gemspec
-    - 'spec/**/*_spec.rb'
+  ExcludedMethods:
+    - describe
 
 #################### Style ###############################
 

@@ -46,7 +46,11 @@ rails new APP_PATH --skip-action-cable --skip-coffee --skip-test --database=post
 ### Generators
 
 ```sh
-rails generate auxiliary_rails:api_resource
+# install everything
+rails generate auxiliary_rails:install
+
+# install one by one
+rails generate auxiliary_rails:install_commands
 rails generate auxiliary_rails:install_errors
 rails generate auxiliary_rails:install_rubocop
 rails generate auxiliary_rails:install_rubocop --no-specify-gems
