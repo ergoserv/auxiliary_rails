@@ -1,0 +1,7 @@
+module <%= api_module_name %>::Entities
+  class <%= class_name %>Entity < Grape::Entity
+    expose :id
+    # TODO: define `<%= class_name %>Entity` exposes
+    expose :created_at, :updated_at
+  end
+end

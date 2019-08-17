@@ -1,0 +1,32 @@
+require 'rails_helper'
+
+RSpec.describe <%= api_module_name %>::Resources::<%= plural_name.camelize %>Resource, type: :request do
+  describe 'GET <%= api_url_path %>' do
+    subject { get '<%= api_url_path %>' }
+
+    # TODO: write some tests
+    skip
+  end
+
+  describe 'POST <%= api_url_path %>' do
+    subject { post '<%= api_url_path %>' }
+
+    # TODO: write some tests
+    skip
+  end
+
+  describe 'GET <%= api_url_path %>/:id' do
+    # TODO: write some tests
+    skip
+  end
+
+  describe 'PUT <%= api_url_path %>/:id' do
+    # TODO: write some tests
+    skip
+  end
+
+  describe 'DELETE <%= api_url_path %>/:id' do
+    # TODO: write some tests
+    skip
+  end
+end
