@@ -11,10 +11,11 @@ Collection of classes, configs, scripts, generators for Ruby on Rails helping yo
 Add one of these lines to your application's Gemfile:
 
 ```ruby
+# version released to RubyGems
 gem 'auxiliary_rails'
-# or
+# or latest version from the repository
 gem 'auxiliary_rails', git: 'https://github.com/ergoserv/auxiliary_rails'
-# or
+# or from a specific branch of the repository
 gem 'auxiliary_rails', github: 'ergoserv/auxiliary_rails', branch: 'develop'
 ```
 
@@ -28,12 +29,27 @@ Or install it yourself as:
 
 ## Usage
 
+### Rails Application Templates
+
+Install gem into the system (e.g. using `gem install auxiliary_rails`) then:
+
+```sh
+auxiliary_rails new APP_PATH
+```
+
+Or use `rails new` command specifying `--template` argument:
+
+```sh
+rails new APP_PATH --skip-action-cable --skip-coffee --skip-test --database=postgresql --template=https://raw.githubusercontent.com/ergoserv/auxiliary_rails/develop/templates/rails/elementary.rb
+```
+
 ### Generators
 
 ```sh
 rails generate auxiliary_rails:api_resource
 rails generate auxiliary_rails:install_errors
 rails generate auxiliary_rails:install_rubocop
+rails generate auxiliary_rails:install_rubocop --no-specify-gems
 ```
 
 ### View Helpers

@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require "#{__dir__}/../lib/auxiliary_rails/cli"
+
+AuxiliaryRails::CLI.start

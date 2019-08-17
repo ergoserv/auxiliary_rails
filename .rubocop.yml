@@ -1,10 +1,25 @@
+inherit_from:
+  - .rubocop_todo.yml
+
+require:
+  - rubocop-performance
+  - rubocop-rspec
+
 AllCops:
   Exclude:
-    - auxiliary_rails.gemspec
     - vendor/bundle/**/* # fix for running on Travis CI
 
-Layout/AlignParameters:
+#################### Layout ##############################
+
+Layout/AlignArguments:
   EnforcedStyle: with_fixed_indentation
+
+#################### Metrics ##############################
+
+Metrics/BlockLength:
+  Exclude:
+    - auxiliary_rails.gemspec
+    - 'spec/**/*_spec.rb'
 
 #################### Style ###############################
 

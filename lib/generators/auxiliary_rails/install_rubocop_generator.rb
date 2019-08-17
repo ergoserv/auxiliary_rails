@@ -2,7 +2,7 @@ require 'rails'
 
 module AuxiliaryRails
   class InstallRubocopGenerator < ::Rails::Generators::Base
-    class_option :specify_gem,
+    class_option :specify_gems,
       type: :boolean,
       default: true,
       desc: 'Indicates if `rubocop` gem needs to be added to Gemfile'
@@ -15,11 +15,14 @@ module AuxiliaryRails
         '.rubocop_auxiliary_rails.yml'
     end
 
-    def specify_gem_dependency
-      return unless options[:specify_gem]
+    def specify_gems_dependency
+      return unless options[:specify_gems]
 
       gem_group :development, :test do
         gem 'rubocop'
+        gem 'rubocop-performance'
+        gem 'rubocop-rails'
+        gem 'rubocop-rspec'
       end
     end
   end

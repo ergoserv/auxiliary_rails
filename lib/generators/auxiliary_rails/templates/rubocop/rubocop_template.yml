@@ -1,2 +1,7 @@
 inherit_from:
   - .rubocop_auxiliary_rails.yml
+
+require:
+  - rubocop-performance
+  - rubocop-rails
+  - rubocop-rspec
