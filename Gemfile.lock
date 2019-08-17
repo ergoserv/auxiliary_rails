@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    auxiliary_rails (0.1.5)
+    auxiliary_rails (0.1.6)
       thor
 
 GEM
@@ -170,4 +170,4 @@ DEPENDENCIES
   rubocop-rspec
 
 BUNDLED WITH
-   2.0.1
+   2.0.2
