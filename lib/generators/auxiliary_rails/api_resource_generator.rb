@@ -37,7 +37,7 @@ module AuxiliaryRails
 
     def create_api_resource_spec_file
       template 'api_resource_spec_template.rb.erb',
-        "spec/#{api_module_path}/#{plural_file_name}_resource_spec.rb"
+        "spec/#{api_module_path}/resources/#{plural_file_name}_resource_spec.rb"
     end
 
     private
