@@ -1,5 +1,9 @@
 # AuxiliaryRails Changelog
 
+## v0.1.7
+
+* Bundle update (nokogiri 1.10.4, rake 12)
+
 ## v0.1.6
 
 * API Resource generator
