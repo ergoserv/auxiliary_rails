@@ -1,6 +1,10 @@
 inherit_from:
   - .rubocop_auxiliary_rails.yml
 
+inherit_mode:
+  merge:
+    - Exclude
+
 require:
   - rubocop-performance
   - rubocop-rails
