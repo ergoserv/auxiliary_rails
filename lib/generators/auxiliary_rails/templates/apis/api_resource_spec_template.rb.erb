@@ -16,8 +16,17 @@ RSpec.describe <%= api_module_name %>::Resources::<%= plural_name.camelize %>Res
   end
 
   describe 'GET <%= api_url_path %>/:id' do
-    # TODO: write some tests
-    skip
+
+    subject { get "<%= api_url_path %>/#{<%= singular_name %>.id}" }
+
+    let(:<%= singular_name %>) { create(:<%= singular_name %>) }
+
+    it 'returns a <%= singular_name %> by id' do
+      subject
+
+      expect_status :ok
+      expect_json(id: <%= singular_name %>.id)
+    end
   end
 
   describe 'PUT <%= api_url_path %>/:id' do
