@@ -1,11 +1,18 @@
 require 'rails_helper'
 
-RSpec.describe <%= api_module_name %>::Resources::<%= plural_name.camelize %>Resource, type: :request do
+RSpec.describe <%= resource_class_name %>, type: :request do
   describe 'GET <%= api_url_path %>' do
     subject { get '<%= api_url_path %>' }
 
-    # TODO: write some tests
-    skip
+    it 'returns a list of <%= plural_name %>' do
+      <%= plural_name %> = create_list(:<%= singular_name %>, 2)
+
+      subject
+
+      expect_status :ok
+      expect_json_sizes 2
+      expect_json('0', id: <%= plural_name %>.first.id)
+    end
   end
 
   describe 'POST <%= api_url_path %>' do
@@ -16,12 +23,11 @@ RSpec.describe <%= api_module_name %>::Resources::<%= plural_name.camelize %>Res
   end
 
   describe 'GET <%= api_url_path %>/:id' do
-
     subject { get "<%= api_url_path %>/#{<%= singular_name %>.id}" }
 
     let(:<%= singular_name %>) { create(:<%= singular_name %>) }
 
-    it 'returns a <%= singular_name %> by id' do
+    it 'returns a <%= singular_name %> by ID' do
       subject
 
       expect_status :ok
@@ -30,12 +36,24 @@ RSpec.describe <%= api_module_name %>::Resources::<%= plural_name.camelize %>Res
   end
 
   describe 'PUT <%= api_url_path %>/:id' do
-    # TODO: write some tests
-    skip
+    subject { put "<%= api_url_path %>/#{<%= singular_name %>.id}" }
+
+    let(:<%= singular_name %>) { create(:<%= singular_name %>) }
+
+    it 'updates a <%= singular_name %> by ID' do
+      skip
+    end
   end
 
   describe 'DELETE <%= api_url_path %>/:id' do
-    # TODO: write some tests
-    skip
+    subject { delete "<%= api_url_path %>/#{<%= singular_name %>.id}" }
+
+    let!(:<%= singular_name %>) { create(:<%= singular_name %>) }
+
+    it 'deletes a <%= singular_name %> by ID' do
+      expect { subject }.to change(<%= singular_name.camelize %>, :count).by -1
+      expect_status 204
+      expect(response.body).to be_blank
+    end
   end
 end

@@ -40,6 +40,11 @@ module AuxiliaryRails
         "spec/#{api_module_path}/resources/#{plural_file_name}_resource_spec.rb"
     end
 
+    def say_instructions
+      say "Mount resource in #{api_module_name}:"
+      say "    mount #{resource_class_name}"
+    end
+
     private
 
     def api_module_name
@@ -58,6 +63,10 @@ module AuxiliaryRails
 
     def entity_class_name
       "#{api_module_name}::Entities::#{class_name}Entity"
+    end
+
+    def resource_class_name
+      "#{api_module_name}::Resources::#{plural_name.camelize}Resource"
     end
   end
 end
