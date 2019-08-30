@@ -12,14 +12,18 @@ module <%= api_module_name %>::Resources
     end
 
     resource :<%= plural_name %> do
-      desc 'Returns resource collection'
+      desc 'Returns resource collection' do
+        success <%= entity_class_name %>
+      end
       get do
-        # TODO: authorize resource, :index?
+        # TODO: authorize <%= class_name %>, :index?
         present collection,
           with: <%= entity_class_name %>
       end
 
-      desc 'Creates a <%= class_name %>'
+      desc 'Creates a <%= class_name %>' do
+        success <%= entity_class_name %>
+      end
       params do
         requires :<%= singular_name %>, type: Hash do
           # TODO: define resource params or remove `params` block
@@ -44,7 +48,9 @@ module <%= api_module_name %>::Resources
             with: <%= entity_class_name %>
         end
 
-        desc 'Updates a <%= class_name %>'
+        desc 'Updates a <%= class_name %>' do
+          success <%= entity_class_name %>
+        end
         params do
           requires :<%= singular_name %>, type: Hash do
             # TODO: define resource params or remove `params` block

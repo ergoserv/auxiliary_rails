@@ -5,13 +5,13 @@ RSpec.describe <%= resource_class_name %>, type: :request do
     subject { get '<%= api_url_path %>' }
 
     it 'returns a list of <%= plural_name %>' do
-      <%= plural_name %> = create_list(:<%= singular_name %>, 2)
+      create_list(:<%= singular_name %>, 2)
 
       subject
 
       expect_status :ok
       expect_json_sizes 2
-      expect_json('0', id: <%= plural_name %>.first.id)
+      expect_json('0', id: <%= class_name %> %>.first.id)
     end
   end
 
@@ -51,7 +51,7 @@ RSpec.describe <%= resource_class_name %>, type: :request do
     let!(:<%= singular_name %>) { create(:<%= singular_name %>) }
 
     it 'deletes a <%= singular_name %> by ID' do
-      expect { subject }.to change(<%= singular_name.camelize %>, :count).by -1
+      expect { subject }.to change(<%= class_name %>, :count).by -1
       expect_status 204
       expect(response.body).to be_blank
     end

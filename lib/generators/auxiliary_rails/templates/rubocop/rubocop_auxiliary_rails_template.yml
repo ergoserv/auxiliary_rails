@@ -1,6 +1,6 @@
 # AuxiliaryRails RuboCop Config
 # Homepage: https://github.com/ergoserv/auxiliary_rails
-# Version: 7
+# Version: 8
 
 AllCops:
   Exclude:
@@ -17,8 +17,19 @@ Layout/AlignArguments:
 
 #################### Metrics ###############################
 
+Metrics/BlockLength:
+  ExcludedMethods:
+    - describe
+    - resource
+
 Metrics/MethodLength:
   Max: 30
+
+#################### Naming ################################
+
+Naming/MemoizedInstanceVariableName:
+  Exclude:
+    - 'app/apis/**/resources/*_resource.rb'
 
 #################### Rails #################################
 
@@ -26,6 +37,9 @@ Rails:
   Enabled: true
 
 #################### RSpec #################################
+
+RSpec/ExampleLength:
+  Max: 10
 
 RSpec/NamedSubject:
   Enabled: false
