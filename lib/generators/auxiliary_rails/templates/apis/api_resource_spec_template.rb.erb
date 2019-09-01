@@ -11,7 +11,7 @@ RSpec.describe <%= resource_class_name %>, type: :request do
 
       expect_status :ok
       expect_json_sizes 2
-      expect_json('0', id: <%= class_name %> %>.first.id)
+      expect_json '0', id: <%= class_name %> %>.first.id
     end
   end
 
@@ -31,7 +31,7 @@ RSpec.describe <%= resource_class_name %>, type: :request do
       subject
 
       expect_status :ok
-      expect_json(id: <%= singular_name %>.id)
+      expect_json id: <%= singular_name %>.id
     end
   end
 
