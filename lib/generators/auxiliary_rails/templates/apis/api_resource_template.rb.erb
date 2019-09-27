@@ -12,7 +12,7 @@ module <%= api_module_name %>::Resources
     end
 
     resource :<%= plural_name %> do
-      desc 'Returns resource collection' do
+      desc 'Returns a collection of <%= plural_name %>' do
         success <%= entity_class_name %>
       end
       get do
@@ -30,7 +30,7 @@ module <%= api_module_name %>::Resources
         end
       end
       post do
-        @<%= singular_name %> = <%= class_name %>.new(declared(params)[:<%= singular_name %>])
+        @<%= singular_name %> = <%= class_name %>.new(params[:<%= singular_name %>])
         # TODO: authorize resource, :create?
         resource.save!
         present resource,
@@ -57,7 +57,7 @@ module <%= api_module_name %>::Resources
           end
         end
         put do
-          resource.assign_attributes(declared(params)[:<%= singular_name %>])
+          resource.assign_attributes(params[:<%= singular_name %>])
           # TODO: authorize resource, :update?
           resource.save!
           present resource,
