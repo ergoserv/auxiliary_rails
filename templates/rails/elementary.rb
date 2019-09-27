@@ -9,6 +9,7 @@ gem 'auxiliary_rails',
   branch: 'develop'
 
 gem_group :development, :test do
+  gem 'dotenv-rails'
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'pry-byebug'
