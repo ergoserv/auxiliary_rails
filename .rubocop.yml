@@ -20,6 +20,12 @@ Metrics/BlockLength:
   ExcludedMethods:
     - describe
 
+#################### RSpec ################################
+
+
+RSpec/MultipleExpectations:
+  Max: 3
+
 #################### Style ###############################
 
 Style/Documentation:

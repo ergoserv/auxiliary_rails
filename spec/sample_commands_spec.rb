@@ -52,9 +52,27 @@ RSpec.describe SampleCommands do
       it do
         expect { cmd.call }.to change(cmd.errors, :count).from(0).to(1)
       end
+    end
+  end
+
+  describe 'ValidationErrorsCommand' do
+    subject(:cmd) { SampleCommands::ValidationErrorsCommand.new(age) }
+
+    context 'when params are valid' do
+      let(:age) { 19 }
+
+      it 'succeeds without any errors' do
+        expect(cmd.call).to be_success
+        expect(cmd.errors.count).to eq 0
+      end
+    end
+
+    context 'when params are not valid' do
+      let(:age) { 17 }
 
       it do
-        puts cmd.call.errors.full_messages
+        expect(cmd.call).to be_failure
+        expect(cmd.errors[:age]).to include 'must be greater than 18'
       end
     end
   end

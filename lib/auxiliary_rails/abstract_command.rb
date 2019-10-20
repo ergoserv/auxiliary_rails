@@ -1,9 +1,10 @@
+require 'dry-initializer-rails'
 require 'active_model'
 
 module AuxiliaryRails
   class AbstractCommand
-    include ActiveModel::Model
-    include ActiveModel::Attributes
+    extend Dry::Initializer
+    include ActiveModel::Validations
 
     def self.call(*args)
       new(*args).call
@@ -37,10 +38,11 @@ module AuxiliaryRails
 
     # Method for ActiveModel::Errors
     def read_attribute_for_validation(attr_name)
+      attr_name = attr_name.to_sym
       if attr_name == :command
         self
       else
-        attribute(attr_name)
+        self.class.dry_initializer.attributes(self)[attr_name]
       end
     end
 

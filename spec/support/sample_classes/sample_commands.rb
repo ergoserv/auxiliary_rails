@@ -28,4 +28,20 @@ module SampleCommands
       failure!
     end
   end
+
+  class ValidationErrorsCommand < AuxiliaryRails::AbstractCommand
+    param :age
+
+    validates :age,
+      numericality: {
+        only_integer: true,
+        greater_than: 18
+      }
+
+    def call
+      return failure! unless valid?
+
+      success!
+    end
+  end
 end

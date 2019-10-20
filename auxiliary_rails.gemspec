@@ -42,5 +42,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rubocop-performance'
   spec.add_development_dependency 'rubocop-rspec'
 
+  spec.add_runtime_dependency 'dry-initializer-rails'
   spec.add_runtime_dependency 'thor'
 end
