@@ -26,7 +26,7 @@ RSpec.describe SampleCommands do
   describe 'DoubleStatusSetCommand' do
     subject(:cmd) { SampleCommands::DoubleStatusSetCommand.new }
 
-    describe '.call' do
+    describe '#call' do
       it do
         expect { cmd.call }.to raise_error ApplicationError,
           '`SampleCommands::DoubleStatusSetCommand` was already executed.'
@@ -37,7 +37,7 @@ RSpec.describe SampleCommands do
   describe 'SuccessWithErrorsCommand' do
     subject(:cmd) { SampleCommands::SuccessWithErrorsCommand.new }
 
-    describe '.call' do
+    describe '#call' do
       it do
         expect { cmd.call }.to raise_error ApplicationError,
           '`SampleCommands::SuccessWithErrorsCommand` contains errors.'
@@ -48,7 +48,7 @@ RSpec.describe SampleCommands do
   describe 'FailureWithErrorsCommand' do
     subject(:cmd) { SampleCommands::FailureWithErrorsCommand.new }
 
-    describe '.call' do
+    describe '#call' do
       it do
         expect { cmd.call }.to change(cmd.errors, :count).from(0).to(1)
       end

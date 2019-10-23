@@ -56,7 +56,10 @@ rails generate auxiliary_rails:install_rubocop
 rails generate auxiliary_rails:install_rubocop --no-specify-gems
 
 # API resource generator
-rails generate auxiliary_rails:api_resource NAME
+rails generate auxiliary_rails:api_resource
+
+# Command generator
+rails generate auxiliary_rails:command
 ```
 
 ### View Helpers
