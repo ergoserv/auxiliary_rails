@@ -8,7 +8,7 @@ Collection of classes, configs, scripts, generators for Ruby on Rails helping yo
 
 ## Installation
 
-Add one of these lines to your application's Gemfile:
+Add one of these lines to your application's `Gemfile`:
 
 ```ruby
 # version released to RubyGems
