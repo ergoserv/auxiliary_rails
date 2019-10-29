@@ -14,10 +14,6 @@ module AuxiliaryRails
       raise NotImplementedError
     end
 
-    def errors
-      @errors ||= ActiveModel::Errors.new(self)
-    end
-
     def failure?
       status?(:failure)
     end
@@ -32,6 +28,7 @@ module AuxiliaryRails
       status?(:success)
     end
 
+    # Shortcut for `ActiveRecord::Base.transaction`
     def transaction(&block)
       ActiveRecord::Base.transaction(&block) if block_given?
     end
