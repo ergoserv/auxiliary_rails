@@ -1,5 +1,10 @@
 # AuxiliaryRails Changelog
 
+## v0.2.0
+
+* Commands migration to `dry-initializer`
+* Commands usage examples
+
 ## v0.1.7
 
 * Bundle update (nokogiri 1.10.4, rake 12)
@@ -11,7 +16,7 @@
 
 ## v0.1.5
 
-* Fix Gemfile.lock
+* Fix `Gemfile.lock`
 
 ## v0.1.4
 
@@ -28,7 +33,7 @@
 
 ## v0.1.2
 
-* Fix Gemfile.lock
+* Fix `Gemfile.lock`
 
 ## v0.1.1
 
