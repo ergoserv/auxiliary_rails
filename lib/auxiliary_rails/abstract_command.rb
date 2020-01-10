@@ -1,5 +1,5 @@
-require 'dry-initializer-rails'
 require 'active_model'
+require 'dry-initializer-rails'
 
 module AuxiliaryRails
   class AbstractCommand
