@@ -1,6 +1,6 @@
 # AuxiliaryRails RuboCop Config
 # Homepage: https://github.com/ergoserv/auxiliary_rails
-# Version: 8
+# Version: 9
 
 AllCops:
   Exclude:
@@ -12,7 +12,7 @@ AllCops:
 
 #################### Layout ###############################
 
-Layout/AlignArguments:
+Layout/ArgumentAlignment:
   EnforcedStyle: with_fixed_indentation
 
 #################### Metrics ###############################
