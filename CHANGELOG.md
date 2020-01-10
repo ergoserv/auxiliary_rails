@@ -1,9 +1,16 @@
 # AuxiliaryRails Changelog
 
+## [Unreleased]
+
+### Added
+- Commands usage examples
+
+### Changed
+- Commands migrate from `#call` to `#perform` method
+
 ## v0.2.0
 
 * Commands migration to `dry-initializer`
-* Commands usage examples
 
 ## v0.1.7
 
@@ -26,7 +33,7 @@
 
 ## v0.1.3
 
-* Upgrate `rubocop` gem and its configs
+* Upgrade `rubocop` gem and its configs
 * `rubocop-rspec` and `rubocop-performance` gem iteration
 * Added basic Rails application template
 * CLI with `create_rails_app` command

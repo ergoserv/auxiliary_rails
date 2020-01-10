@@ -3,27 +3,27 @@ end
 
 module SampleCommands
   class SuccessCommand < AuxiliaryRails::AbstractCommand
-    def call
+    def perform
       success!
     end
   end
 
   class DoubleStatusSetCommand < AuxiliaryRails::AbstractCommand
-    def call
+    def perform
       failure!
       success!
     end
   end
 
   class SuccessWithErrorsCommand < AuxiliaryRails::AbstractCommand
-    def call
+    def perform
       errors.add(:command, :error)
       success!
     end
   end
 
   class FailureWithErrorsCommand < AuxiliaryRails::AbstractCommand
-    def call
+    def perform
       errors.add(:command, :test_failure_message)
       failure!
     end
@@ -38,7 +38,7 @@ module SampleCommands
         greater_than: 18
       }
 
-    def call
+    def perform
       return failure! unless valid?
 
       success!

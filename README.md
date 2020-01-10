@@ -87,16 +87,16 @@ class RegisterUserCommand < ApplicationCommand
   # https://api.rubyonrails.org/classes/ActiveModel/Validations.html
   validates :password, length: { in: 8..32 }
 
-  # Define the only public method `#call`
+  # Define the only public method `#perform`
   # where command's flow is defined
-  def call
+  def perform
     # Use `return failure!` to exit from the command with failure
     return failure! if invalid?
 
     # Method `#transaction` is a shortcut for `ActiveRecord::Base.transaction`
     transaction do
-      # Keep the `#call` method short and clean, put all the steps and actions
-      # into meaningful and self-explanatory methods
+      # Keep the `#perform` method short and clean, put all the steps, actions
+      # and business logic into meaningful and self-explanatory methods
       create_user
 
       # Use `error!` method to interrupt the flow raising an error
@@ -106,7 +106,7 @@ class RegisterUserCommand < ApplicationCommand
       # ...
     end
 
-    # Always end the `#call` method with `success!`
+    # Always end the `#perform` method with `success!`
     # this will set the proper status and allow to chain command methods.
     success!
   end

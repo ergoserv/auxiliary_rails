@@ -11,6 +11,15 @@ module AuxiliaryRails
     end
 
     def call
+      ensure_empty_status!
+
+      perform
+
+      ensure_execution!
+      self
+    end
+
+    def perform
       raise NotImplementedError
     end
 
