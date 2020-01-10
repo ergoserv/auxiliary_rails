@@ -62,6 +62,81 @@ rails generate auxiliary_rails:api_resource
 rails generate auxiliary_rails:command
 ```
 
+### Command Objects
+
+Variation of implementation of [Command pattern](https://en.wikipedia.org/wiki/Command_pattern).
+
+```ruby
+# app/commands/application_command.rb
+class ApplicationCommand < AuxiliaryRails::AbstractCommand
+end
+
+# app/commands/register_user_command.rb
+class RegisterUserCommand < ApplicationCommand
+  # Define command arguments
+  # using `param` or `option` methods provided by dry-initializer
+  # https://dry-rb.org/gems/dry-initializer/3.0/
+  param :email
+  param :password
+
+  # Define the results of the command
+  # using `attr_reader` and set it as a regular instance var inside the command
+  attr_reader :user
+
+  # Regular Active Model Validations can be used to validate params
+  # https://api.rubyonrails.org/classes/ActiveModel/Validations.html
+  validates :password, length: { in: 8..32 }
+
+  # Define the only public method `#call`
+  # where command's flow is defined
+  def call
+    # Use `return failure!` to exit from the command with failure
+    return failure! if invalid?
+
+    # Method `#transaction` is a shortcut for `ActiveRecord::Base.transaction`
+    transaction do
+      # Keep the `#call` method short and clean, put all the steps and actions
+      # into meaningful and self-explanatory methods
+      create_user
+
+      # Use `error!` method to interrupt the flow raising an error
+      error! unless @user.persistent?
+
+      send_notification
+      # ...
+    end
+
+    # Always end the `#call` method with `success!`
+    # this will set the proper status and allow to chain command methods.
+    success!
+  end
+
+  private
+
+  def create_user
+    @user = User.create(email: email, password: password)
+  end
+
+  def send_notification
+    # ...
+  end
+end
+
+### usage ###
+
+class RegistrationsController
+  def register
+    cmd = RegisterUserCommand.call(params[:email], params[:password])
+
+    if cmd.success?
+     redirect_to user_path(cmd.user) and return
+    else
+      @errors = cmd.errors
+    end
+  end
+end
+```
+
 ### View Helpers
 
 ```ruby
