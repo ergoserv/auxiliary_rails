@@ -19,8 +19,12 @@ module AuxiliaryRails
       end
     end
 
-    def call
+    def call(options = {})
       ensure_empty_status!
+
+      if options[:validate] != false && invalid?
+        return failure!('Validation failed')
+      end
 
       perform
 

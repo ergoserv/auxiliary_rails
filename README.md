@@ -91,7 +91,7 @@ class RegisterUserCommand < ApplicationCommand
   # where command's flow is defined
   def perform
     # Use `return failure!` to exit from the command with failure
-    return failure! if invalid?
+    return failure! if registration_disabled?
 
     # Method `#transaction` is a shortcut for `ActiveRecord::Base.transaction`
     transaction do

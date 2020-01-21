@@ -74,6 +74,12 @@ RSpec.describe SampleCommands do
         expect(cmd.call).to be_failure
         expect(cmd.errors[:age]).to include 'must be greater than 18'
       end
+
+      context 'when option to skip validation set' do
+        it do
+          expect(cmd.call(validate: false)).to be_success
+        end
+      end
     end
   end
 end

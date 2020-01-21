@@ -4,9 +4,11 @@
 
 ### Added
 - Commands usage examples
+- Commands: `argument` as an alias for `param`
 
 ### Changed
 - Commands migrate from `#call` to `#perform` method
+- Commands: force validations
 
 ## v0.2.0
 

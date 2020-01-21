@@ -39,8 +39,6 @@ module SampleCommands
       }
 
     def perform
-      return failure! unless valid?
-
       success!
     end
   end
