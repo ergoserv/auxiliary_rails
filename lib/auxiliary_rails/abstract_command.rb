@@ -21,7 +21,7 @@ module AuxiliaryRails
     def status?(value)
       ensure_execution!
 
-      status == value&.to_sym
+      command_status == value&.to_sym
     end
 
     def success?
@@ -50,7 +50,7 @@ module AuxiliaryRails
 
     protected
 
-    attr_accessor :status
+    attr_accessor :command_status
 
     def ensure_empty_errors!
       return if errors.empty?
@@ -59,13 +59,13 @@ module AuxiliaryRails
     end
 
     def ensure_empty_status!
-      return if status.nil?
+      return if command_status.nil?
 
       error!("`#{self.class}` was already executed.")
     end
 
     def ensure_execution!
-      return if status.present?
+      return if command_status.present?
 
       error!("`#{self.class}` was not executed yet.")
     end
@@ -80,7 +80,7 @@ module AuxiliaryRails
 
       errors.add(:command, :failed, message: message) unless message.nil?
 
-      self.status = :failure
+      self.command_status = :failure
       self
     end
 
@@ -88,7 +88,7 @@ module AuxiliaryRails
       ensure_empty_errors!
       ensure_empty_status!
 
-      self.status = :success
+      self.command_status = :success
       self
     end
   end
