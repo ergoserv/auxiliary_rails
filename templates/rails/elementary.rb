@@ -3,22 +3,39 @@ gsub_file 'Gemfile', /^\s*#.*$\n/, ''
 gsub_file 'Gemfile', /^.*coffee.*$\n/, ''
 gsub_file 'Gemfile', /^.*jbuilder.*$\n/, ''
 gsub_file 'Gemfile', /^.*tzinfo-data.*$\n/, ''
+gsub_file 'Gemfile', /^group :development, :test do\n.*byebug.*\nend\n\n/, ''
 
-gem 'auxiliary_rails',
-  git: 'https://github.com/ergoserv/auxiliary_rails',
-  branch: 'develop'
+# Create RuboCop files
+file '.rubocop.yml', <<-FILE
+inherit_gem:
+  rubocop-ergoserv:
+    - config/default.yml
+
+FILE
+
+file 'bin/rubocop', <<-FILE
+#!/usr/bin/env bash
+
+bundle exec rubocop "$@"
+
+FILE
+
+chmod 'bin/rubocop', 0755
+
+# Gemfile additions
+gem 'auxiliary_rails'
 
 gem_group :development, :test do
+  gem 'byebug'
   gem 'dotenv-rails'
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'rspec-rails'
-  gem 'rubocop'
-  gem 'rubocop-performance'
-  gem 'rubocop-rails'
-  gem 'rubocop-rspec'
+  gem 'rubocop-ergoserv',
+    git: 'https://github.com/ergoserv/rubocop-ergoserv',
+    require: false
 end
 
 gem_group :test do
@@ -29,6 +46,5 @@ end
 after_bundle do
   # ensure using the latest versions of gems
   run 'bundle update'
-  rails_command 'generate auxiliary_rails:install_rubocop --no-specify-gems'
   rails_command 'generate rspec:install'
 end

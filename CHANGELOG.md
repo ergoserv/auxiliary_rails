@@ -10,6 +10,9 @@
 - Commands migrate from `#call` to `#perform` method
 - Commands: force validations
 
+### Removed
+- RuboCop generator, replaces with `rubocop-ergoserv` gem
+
 ## v0.2.0
 
 * Commands migration to `dry-initializer`

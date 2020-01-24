@@ -52,8 +52,6 @@ rails generate auxiliary_rails:install
 # Install one by one
 rails generate auxiliary_rails:install_commands
 rails generate auxiliary_rails:install_errors
-rails generate auxiliary_rails:install_rubocop
-rails generate auxiliary_rails:install_rubocop --no-specify-gems
 
 # API resource generator
 rails generate auxiliary_rails:api_resource
