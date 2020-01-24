@@ -76,7 +76,6 @@ class RegisterUserCommand < ApplicationCommand
   # Define command arguments
   # using `param` or `option` methods provided by dry-initializer
   # https://dry-rb.org/gems/dry-initializer/3.0/
-  # Don't use reserved names like :status - it'll produce error
   param :email
   param :password
 
@@ -86,7 +85,7 @@ class RegisterUserCommand < ApplicationCommand
 
   # Regular Active Model Validations can be used to validate params
   # https://api.rubyonrails.org/classes/ActiveModel/Validations.html
-  # Use #valid?, #invalid?, #validate methods to engage validations
+  # Use #valid?, #invalid?, #validate! methods to engage validations
   validates :password, length: { in: 8..32 }
 
   # Define the only public method `#perform`
