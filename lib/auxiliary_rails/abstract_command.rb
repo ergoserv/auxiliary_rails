@@ -6,11 +6,33 @@ module AuxiliaryRails
     extend Dry::Initializer
     include ActiveModel::Validations
 
-    def self.call(*args)
-      new(*args).call
+    class << self
+      alias argument param
+
+      def call(*args)
+        new(*args).call
+      end
+
+      # Method for ActiveModel::Translation
+      def i18n_scope
+        :commands
+      end
     end
 
-    def call
+    def call(options = {})
+      ensure_empty_status!
+
+      if options[:validate] != false && invalid?
+        return failure!('Validation failed')
+      end
+
+      perform
+
+      ensure_execution!
+      self
+    end
+
+    def perform
       raise NotImplementedError
     end
 
@@ -39,18 +61,17 @@ module AuxiliaryRails
       if attr_name == :command
         self
       else
-        self.class.dry_initializer.attributes(self)[attr_name]
+        arguments[attr_name]
       end
-    end
-
-    # Method for ActiveModel::Translation
-    def self.i18n_scope
-      :commands
     end
 
     protected
 
     attr_accessor :status
+
+    def arguments
+      self.class.dry_initializer.attributes(self)
+    end
 
     def ensure_empty_errors!
       return if errors.empty?
