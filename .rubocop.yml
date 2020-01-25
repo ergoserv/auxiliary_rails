@@ -7,6 +7,7 @@ require:
 
 AllCops:
   Exclude:
+    - lib/generators/auxiliary_rails/templates/**/*
     - vendor/bundle/**/* # fix for running on Travis CI
 
 #################### Layout ##############################

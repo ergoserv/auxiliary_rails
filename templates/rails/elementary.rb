@@ -6,21 +6,21 @@ gsub_file 'Gemfile', /^.*tzinfo-data.*$\n/, ''
 gsub_file 'Gemfile', /^group :development, :test do\n.*byebug.*\nend\n\n/, ''
 
 # Create RuboCop files
-file '.rubocop.yml', <<-FILE
-inherit_gem:
-  rubocop-ergoserv:
-    - config/default.yml
+file '.rubocop.yml', <<~FILE
+  inherit_gem:
+    rubocop-ergoserv:
+      - config/default.yml
 
 FILE
 
-file 'bin/rubocop', <<-FILE
-#!/usr/bin/env bash
+file 'bin/rubocop', <<~FILE
+  #!/usr/bin/env bash
 
-bundle exec rubocop "$@"
+  bundle exec rubocop "$@"
 
 FILE
 
-chmod 'bin/rubocop', 0755
+chmod 'bin/rubocop', 0o755
 
 # Gemfile additions
 gem 'auxiliary_rails'
