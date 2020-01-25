@@ -1,4 +1,4 @@
-RSpec.describe AuxiliaryRails::AbstractCommand do
+RSpec.describe AuxiliaryRails::Application::Command do
   describe '#call' do
     subject(:cmd_class) { described_class }
 

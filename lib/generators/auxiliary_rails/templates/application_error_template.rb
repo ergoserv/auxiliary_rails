@@ -1,2 +1,2 @@
-class ApplicationError < AuxiliaryRails::AbstractError
+class ApplicationError < AuxiliaryRails::Application::Error
 end

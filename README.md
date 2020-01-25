@@ -66,7 +66,7 @@ Variation of implementation of [Command pattern](https://en.wikipedia.org/wiki/C
 
 ```ruby
 # app/commands/application_command.rb
-class ApplicationCommand < AuxiliaryRails::AbstractCommand
+class ApplicationCommand < AuxiliaryRails::Application::Command
 end
 
 # app/commands/register_user_command.rb
