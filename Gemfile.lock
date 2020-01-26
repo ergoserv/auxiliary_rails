@@ -2,6 +2,7 @@ PATH
   remote: .
   specs:
     auxiliary_rails (0.2.0)
+      dry-initializer
       dry-initializer-rails
       thor
 
@@ -69,7 +70,7 @@ GEM
     concurrent-ruby (1.1.5)
     crass (1.0.5)
     diff-lcs (1.3)
-    dry-initializer (3.0.2)
+    dry-initializer (3.0.3)
     dry-initializer-rails (3.1.1)
       dry-initializer (>= 2.4, < 4)
       rails (> 3.0)
