@@ -136,6 +136,64 @@ class RegistrationsController
 end
 ```
 
+### Form Objects
+
+```ruby
+# app/commands/application_form.rb
+class ApplicationForm < AuxiliaryRails::Application::Form
+end
+
+# app/forms/company_registration_form.rb
+class CompanyRegistrationForm
+  include ActiveModel::Model
+
+  # Define form attributes
+  attribute :company_name, :string
+  attribute :email, :string
+
+  # Define form submission results
+  attr_reader :company
+
+  # Regular Active Model Validations can be used to validate attributes
+  # https://api.rubyonrails.org/classes/ActiveModel/Validations.html
+  validates :company_name, presence: true
+  validates :email, email: true
+
+  def submit
+    # Use `return false` to terminate form submission
+    return false if invalid?
+
+    # Perform business logic here
+
+    @company = create_company
+    send_notification if email.present?
+
+    # Always end the `#submit` method with `true`.
+    # Use `attr_reader` to expose the submission results.
+    true
+  end
+
+  private
+
+  def create_comany
+    Company.create!(name: company_name)
+  end
+
+  def send_notification
+    # mail to: email
+  end
+end
+
+### Usage ###
+
+form = CompanyRegistrationForm.new(params[:company])
+if form.submit
+  redirect_to company_path(form.company) and return
+else
+  @errors = form.errors
+end
+```
+
 ### View Helpers
 
 ```ruby
