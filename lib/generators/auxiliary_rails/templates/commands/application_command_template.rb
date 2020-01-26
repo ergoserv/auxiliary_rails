@@ -1,2 +1,2 @@
-class ApplicationCommand < AuxiliaryRails::AbstractCommand
+class ApplicationCommand < AuxiliaryRails::Application::Command
 end

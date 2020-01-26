@@ -1,5 +1,5 @@
-require 'auxiliary_rails/abstract_error'
-require 'auxiliary_rails/abstract_command'
+require 'auxiliary_rails/application/command'
+require 'auxiliary_rails/application/error'
 require 'auxiliary_rails/railtie' if defined?(Rails)
 require 'auxiliary_rails/version'
 

@@ -1,35 +1,32 @@
-class ApplicationError < AuxiliaryRails::AbstractError
-end
-
 module SampleCommands
-  class SuccessCommand < AuxiliaryRails::AbstractCommand
+  class SuccessCommand < AuxiliaryRails::Application::Command
     def perform
       success!
     end
   end
 
-  class DoubleStatusSetCommand < AuxiliaryRails::AbstractCommand
+  class DoubleStatusSetCommand < AuxiliaryRails::Application::Command
     def perform
       failure!
       success!
     end
   end
 
-  class SuccessWithErrorsCommand < AuxiliaryRails::AbstractCommand
+  class SuccessWithErrorsCommand < AuxiliaryRails::Application::Command
     def perform
       errors.add(:command, :error)
       success!
     end
   end
 
-  class FailureWithErrorsCommand < AuxiliaryRails::AbstractCommand
+  class FailureWithErrorsCommand < AuxiliaryRails::Application::Command
     def perform
       errors.add(:command, :test_failure_message)
       failure!
     end
   end
 
-  class ValidationErrorsCommand < AuxiliaryRails::AbstractCommand
+  class ValidationErrorsCommand < AuxiliaryRails::Application::Command
     argument :age
 
     validates :age,
