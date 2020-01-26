@@ -28,7 +28,7 @@ RSpec.describe SampleCommands do
 
     describe '#call' do
       it do
-        expect { cmd.call }.to raise_error ApplicationError,
+        expect { cmd.call }.to raise_error AuxiliaryRails::Application::Error,
           '`SampleCommands::DoubleStatusSetCommand` was already executed.'
       end
     end
@@ -39,7 +39,7 @@ RSpec.describe SampleCommands do
 
     describe '#call' do
       it do
-        expect { cmd.call }.to raise_error ApplicationError,
+        expect { cmd.call }.to raise_error AuxiliaryRails::Application::Error,
           '`SampleCommands::SuccessWithErrorsCommand` contains errors.'
       end
     end
