@@ -1,6 +1,3 @@
-class ApplicationError < AuxiliaryRails::Application::Error
-end
-
 module SampleCommands
   class SuccessCommand < AuxiliaryRails::Application::Command
     def perform
