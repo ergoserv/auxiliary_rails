@@ -1,0 +1,26 @@
+image: ruby:2.6
+
+cache:
+  paths:
+    - vendor/bundle
+    - vendor/ruby
+
+before_script:
+  - ruby -v
+  - gem install bundler --no-document
+  - bundle config set path 'vendor'
+  - bundle install --jobs $(nproc)
+
+rspec:
+  stage: test
+  script:
+    - bundle exec rspec
+
+rubocop:
+  stage: test
+  allow_failure: true
+  script:
+    - bundle exec rubocop
+
+stages:
+  - test
