@@ -139,7 +139,7 @@ end
 ### Form Objects
 
 ```ruby
-# app/commands/application_form.rb
+# app/forms/application_form.rb
 class ApplicationForm < AuxiliaryRails::Application::Form
 end
 
