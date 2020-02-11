@@ -26,7 +26,7 @@ module AuxiliaryRails
         if options[:validate!] == true
           validate!
         elsif options[:validate] != false && invalid?
-          return failure!('Validation failed')
+          return failure!(:validation_failed)
         end
 
         perform
@@ -109,10 +109,10 @@ module AuxiliaryRails
         end
       end
 
-      def failure!(message = nil)
+      def failure!(message = nil, options = {})
         ensure_empty_status!
 
-        errors.add(:command, :failed, message: message) unless message.nil?
+        errors.add(:command, message, options) if message.present?
 
         self.command_status = :failure
         self

@@ -8,5 +8,10 @@ module AuxiliaryRails
       copy_file 'application_command_template.rb',
         'app/commands/application_command.rb'
     end
+
+    def copy_locale_command_file
+      copy_file 'commands.en_template.yml',
+        'config/locales/commands.en.yml'
+    end
   end
 end
