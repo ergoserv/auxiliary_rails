@@ -99,16 +99,15 @@ module AuxiliaryRails
         raise error_class, message
       end
 
-      # rubocop:disable Style/ClassVars
-      def error_class
-        @@error_class ||=
-          if defined?(ApplicationError)
-            ApplicationError
-          else
-            AuxiliaryRails::Application::Error
-          end
+      if defined?(ApplicationError)
+        def error_class
+          ApplicationError
+        end
+      else
+        def error_class
+          AuxiliaryRails::Application::Error
+        end
       end
-      # rubocop:enable Style/ClassVars
 
       def failure!(message = nil)
         ensure_empty_status!
