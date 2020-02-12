@@ -144,9 +144,7 @@ class ApplicationForm < AuxiliaryRails::Application::Form
 end
 
 # app/forms/company_registration_form.rb
-class CompanyRegistrationForm
-  include ActiveModel::Model
-
+class CompanyRegistrationForm < ApplicationForm
   # Define form attributes
   attribute :company_name, :string
   attribute :email, :string
@@ -165,18 +163,21 @@ class CompanyRegistrationForm
 
     # Perform business logic here
 
+    # Use `attr_reader` to expose the submission results.
     @company = create_company
+    # Return false to indicate failure
+    return false if @company.invalid?
+
     send_notification if email.present?
 
-    # Always end the `#submit` method with `true`.
-    # Use `attr_reader` to expose the submission results.
+    # Always end the `#submit` method with `true` to indicate success
     true
   end
 
   private
 
   def create_comany
-    Company.create!(name: company_name)
+    Company.create(name: company_name)
   end
 
   def send_notification
