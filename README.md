@@ -40,7 +40,7 @@ auxiliary_rails new APP_PATH
 Or use `rails new` command specifying `--template` argument:
 
 ```sh
-rails new APP_PATH --skip-action-cable --skip-coffee --skip-test --database=postgresql --template=https://raw.githubusercontent.com/ergoserv/auxiliary_rails/develop/templates/rails/elementary.rb
+rails new APP_PATH --database=postgresql --template=https://raw.githubusercontent.com/ergoserv/auxiliary_rails/develop/templates/rails/elementary.rb --skip-action-cable --skip-coffee --skip-test --skip-webpack-install
 ```
 
 ### Generators
