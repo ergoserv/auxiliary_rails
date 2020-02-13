@@ -5,22 +5,27 @@ gsub_file 'Gemfile', /^.*jbuilder.*$\n/, ''
 gsub_file 'Gemfile', /^.*tzinfo-data.*$\n/, ''
 gsub_file 'Gemfile', /^group :development, :test do\n.*byebug.*\nend\n\n/, ''
 
+gsub_file '.gitignore', /^\s*#.*$\n/, ''
+gsub_file 'config/routes.rb', /^\s*#.*$\n/, ''
+
 # Create RuboCop files
 file '.rubocop.yml', <<~FILE
   inherit_gem:
     rubocop-ergoserv:
       - config/default.yml
-
 FILE
 
 file 'bin/rubocop', <<~FILE
   #!/usr/bin/env bash
 
   bundle exec rubocop "$@"
-
 FILE
-
 chmod 'bin/rubocop', 0o755
+
+run 'touch .env'
+append_file '.gitignore', <<~FILE
+  .env*.local
+FILE
 
 # Gemfile additions
 gem 'auxiliary_rails'
@@ -46,5 +51,13 @@ end
 after_bundle do
   # ensure using the latest versions of gems
   run 'bundle update'
+
+  generate :controller, 'pages', 'home',
+    '--no-assets',
+    '--no-helper',
+    '--no-test-framework',
+    '--skip-routes'
+  route "root to: 'pages#home'"
+
   rails_command 'generate rspec:install'
 end
