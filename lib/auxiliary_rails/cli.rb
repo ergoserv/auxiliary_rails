@@ -17,20 +17,23 @@ module AuxiliaryRails
     option :database,
       default: 'postgresql',
       type: :string
-    option :template_name,
+    option :template,
       default: 'elementary',
       type: :string
     def new(app_path)
       run "rails new #{app_path} " \
-        '--skip-action-cable --skip-coffee --skip-test ' \
         "--database=#{options[:database]} " \
-        "--template=#{rails_template_path(options[:template_name])}"
+        "--template=#{rails_template_path(options[:template])}" \
+        '--skip-action-cable ' \
+        '--skip-coffee ' \
+        '--skip-test ' \
+        '--skip-webpack-install'
     end
 
     private
 
-    def rails_template_path(template_name)
-      "#{TEMPLATES_DIR}/rails/#{template_name}.rb"
+    def rails_template_path(template)
+      "#{TEMPLATES_DIR}/rails/#{template}.rb"
     end
   end
 end
