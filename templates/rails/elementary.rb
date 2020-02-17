@@ -8,6 +8,13 @@ gsub_file 'Gemfile', /^group :development, :test do\n.*byebug.*\nend\n\n/, ''
 gsub_file '.gitignore', /^\s*#.*$\n/, ''
 gsub_file 'config/routes.rb', /^\s*#.*$\n/, ''
 
+gsub_file 'config/database.yml', /^\s*#.*$\n/, ''
+gsub_file 'config/database.yml', /^\s*pool.*$\n/, <<-FILE
+  host: <%= ENV['DATABASE_HOST'] %>
+  username: <%= ENV['DATABASE_USERNAME'] %>
+  pool: <%= ENV.fetch('RAILS_MAX_THREADS') { 5 } %>
+FILE
+
 # Create RuboCop files
 file '.rubocop.yml', <<~FILE
   inherit_gem:
@@ -59,5 +66,5 @@ after_bundle do
     '--skip-routes'
   route "root to: 'pages#home'"
 
-  rails_command 'generate rspec:install'
+  generate 'rspec:install'
 end
