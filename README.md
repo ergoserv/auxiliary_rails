@@ -128,7 +128,7 @@ class RegistrationsController
     cmd = RegisterUserCommand.call(params[:email], params[:password])
 
     if cmd.success?
-     redirect_to user_path(cmd.user) and return
+      redirect_to user_path(cmd.user) and return
     else
       @errors = cmd.errors
     end
@@ -157,21 +157,18 @@ class CompanyRegistrationForm < ApplicationForm
   validates :company_name, presence: true
   validates :email, email: true
 
-  def submit
-    # Use `return false` to terminate form submission
-    return false if invalid?
-
+  def perform
     # Perform business logic here
 
     # Use `attr_reader` to expose the submission results.
     @company = create_company
-    # Return false to indicate failure
-    return false if @company.invalid?
+    # Return `failure!` to indicate failure and stop execution
+    return failure! if @company.invalid?
 
     send_notification if email.present?
 
-    # Always end the `#submit` method with `true` to indicate success
-    true
+    # Always end with `success!` method call to indicate success
+    success!
   end
 
   private
@@ -187,8 +184,8 @@ end
 
 ### Usage ###
 
-form = CompanyRegistrationForm.new(params[:company])
-if form.submit
+form = CompanyRegistrationForm.call(params[:company])
+if form.success?
   redirect_to company_path(form.company) and return
 else
   @errors = form.errors
