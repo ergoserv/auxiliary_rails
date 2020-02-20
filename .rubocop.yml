@@ -34,3 +34,6 @@ Style/Documentation:
 
 Style/FrozenStringLiteralComment:
   Enabled: false
+
+Style/NegatedIf:
+  EnforcedStyle: postfix
