@@ -1,0 +1,5 @@
+--title "AuxiliaryRails"
+--private --protected
+--exclude lib/generators/*
+--exclude lib/auxiliary_rails.rb
+--exclude lib/auxiliary_rails/railtie.rb
