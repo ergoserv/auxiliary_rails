@@ -4,7 +4,7 @@
 
 ### Added
 - Commands usage examples
-- Commands: `argument` as an alias for `param`
+- Commands: `arguments` helper to get hash of all `param`s
 
 ### Changed
 - Commands migrate from `#call` to `#perform` method

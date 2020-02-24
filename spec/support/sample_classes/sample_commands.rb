@@ -27,7 +27,7 @@ module SampleCommands
   end
 
   class ValidationErrorsCommand < AuxiliaryRails::Application::Command
-    argument :age
+    param :age
 
     validates :age,
       numericality: {

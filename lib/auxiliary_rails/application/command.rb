@@ -8,8 +8,6 @@ module AuxiliaryRails
       include ActiveModel::Validations
 
       class << self
-        alias argument param
-
         def call(*args)
           new(*args).call
         end
