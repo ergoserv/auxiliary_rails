@@ -6,7 +6,6 @@ module AuxiliaryRails
   module Application
     class Command
       extend Dry::Initializer
-      include ActiveModel::Validations
       include AuxiliaryRails::Concerns::Performable
 
       class << self
@@ -15,16 +14,6 @@ module AuxiliaryRails
         # Method for ActiveModel::Translation
         def i18n_scope
           :commands
-        end
-      end
-
-      # Method for ActiveModel::Errors
-      def read_attribute_for_validation(attr_name)
-        attr_name = attr_name.to_sym
-        if attr_name == :command
-          self
-        else
-          arguments[attr_name]
         end
       end
 

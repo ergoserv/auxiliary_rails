@@ -4,6 +4,7 @@ module AuxiliaryRails
   module Concerns
     module Performable
       extend ActiveSupport::Concern
+      include ActiveModel::Validations
 
       class_methods do
         def call(*args)
@@ -14,9 +15,9 @@ module AuxiliaryRails
       def call(options = {})
         ensure_empty_status!
 
-        if options[:validate!] == true && respond_to?(:validate!)
+        if options[:validate!] == true
           validate!
-        elsif options[:validate] != false && respond_to?(:invalid?) && invalid?
+        elsif options[:validate] != false && invalid?
           return failure!(:validation_failed)
         end
 
@@ -54,7 +55,7 @@ module AuxiliaryRails
       attr_accessor :performable_status
 
       def ensure_empty_errors!
-        return if !respond_to?(:errors) || errors.empty?
+        return if errors.empty?
 
         error!("`#{self.class}` contains errors.")
       end
@@ -89,9 +90,7 @@ module AuxiliaryRails
       def failure!(message = nil, options = {})
         ensure_empty_status!
 
-        if respond_to?(:errors) && message.present?
-          errors.add(:command, message, options)
-        end
+        errors.add(:base, message, options) if message.present?
 
         self.performable_status = :failure
         self
