@@ -14,6 +14,14 @@ module AuxiliaryRails
           :forms
         end
       end
+
+      # Indicates object persistence.
+      #
+      # In case of form as performable object that means that form
+      # was executed with success.
+      def persisted?
+        performable_status == true
+      end
     end
   end
 end
