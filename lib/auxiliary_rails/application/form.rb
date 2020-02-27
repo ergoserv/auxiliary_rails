@@ -3,9 +3,9 @@ require 'active_model'
 module AuxiliaryRails
   module Application
     class Form
+      include ActiveModel::Model
       include ActiveModel::Attributes
       include ActiveModel::AttributeAssignment
-      include ActiveModel::Model
       include AuxiliaryRails::Concerns::Performable
 
       class << self
