@@ -14,14 +14,14 @@ module SampleCommands
 
   class SuccessWithErrorsCommand < AuxiliaryRails::Application::Command
     def perform
-      errors.add(:command, :error)
+      errors.add(:base)
       success!
     end
   end
 
   class FailureWithErrorsCommand < AuxiliaryRails::Application::Command
     def perform
-      errors.add(:command, :test_failure_message)
+      errors.add(:base, :test_failure_message)
       failure!
     end
   end

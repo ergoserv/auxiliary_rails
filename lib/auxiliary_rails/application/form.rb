@@ -3,9 +3,10 @@ require 'active_model'
 module AuxiliaryRails
   module Application
     class Form
+      include ActiveModel::Model
       include ActiveModel::Attributes
       include ActiveModel::AttributeAssignment
-      include ActiveModel::Model
+      include AuxiliaryRails::Concerns::Performable
 
       class << self
         # Method for ActiveModel::Translation
@@ -14,8 +15,12 @@ module AuxiliaryRails
         end
       end
 
-      def submit
-        raise NotImplementedError
+      # Indicates object persistence.
+      #
+      # In case of form as performable object that means that form
+      # was executed with success.
+      def persisted?
+        performable_status == true
       end
     end
   end
