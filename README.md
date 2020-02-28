@@ -132,6 +132,16 @@ class RegistrationsController
     else
       @errors = cmd.errors
     end
+
+    ### OR ###
+
+    RegisterUserCommand.call(params[:email], params[:password])
+      .on(:success) do
+        redirect_to dashboard_path and return
+      end
+      .on(:failure) do |cmd|
+        @errors = cmd.errors
+      end
   end
 end
 ```
