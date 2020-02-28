@@ -35,6 +35,8 @@ Install gem into the system (e.g. using `gem install auxiliary_rails`) then:
 
 ```sh
 auxiliary_rails new APP_PATH
+# or add `--develop` option to pull the most recent template from repository
+auxiliary_rails new APP_PATH --develop
 ```
 
 Or use `rails new` command specifying `--template` argument:

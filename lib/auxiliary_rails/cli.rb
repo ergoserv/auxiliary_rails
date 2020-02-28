@@ -6,6 +6,10 @@ module AuxiliaryRails
 
     TEMPLATES_DIR =
       File.expand_path("#{__dir__}/../../templates/")
+    REPOSITORY_URL =
+      'https://raw.githubusercontent.com/ergoserv/' \
+        'auxiliary_rails/develop/templates'
+      .freeze
 
     desc 'new APP_PATH', 'Create Rails application from template'
     long_desc <<-LONGDESC
@@ -20,6 +24,9 @@ module AuxiliaryRails
     option :template,
       default: 'elementary',
       type: :string
+    option :develop,
+      default: false,
+      type: :boolean
     def new(app_path)
       run "rails new #{app_path} " \
         "--database=#{options[:database]} " \
@@ -33,7 +40,11 @@ module AuxiliaryRails
     private
 
     def rails_template_path(template)
-      "#{TEMPLATES_DIR}/rails/#{template}.rb"
+      if options[:develop] == true
+        "#{REPOSITORY_URL}/rails/#{template}.rb"
+      else
+        "#{TEMPLATES_DIR}/rails/#{template}.rb"
+      end
     end
   end
 end
