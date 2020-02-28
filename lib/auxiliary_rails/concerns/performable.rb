@@ -27,6 +27,14 @@ module AuxiliaryRails
         self
       end
 
+      # Describes business logic.
+      #
+      # Method <b>should always</b> return <tt>success!</tt>
+      # or <tt>failure!</tt> methods in order pro provide further
+      # correct method chaining.
+      #
+      # @abstract
+      # @return [self]
       def perform
         raise NotImplementedError
       end
@@ -45,7 +53,7 @@ module AuxiliaryRails
         status?(:success)
       end
 
-      # Shortcut for `ActiveRecord::Base.transaction`
+      # Shortcut for <tt>ActiveRecord::Base.transaction</tt>
       def transaction(&block)
         ActiveRecord::Base.transaction(&block) if block_given?
       end
@@ -54,6 +62,9 @@ module AuxiliaryRails
 
       attr_accessor :performable_status
 
+      # @raise [AuxiliaryRails::Application::Error]
+      #   Error happens if command contains any errors.
+      # @return [nil]
       def ensure_empty_errors!
         return if errors.empty?
 
@@ -87,6 +98,9 @@ module AuxiliaryRails
         end
       end
 
+      # Sets command's status to <tt>failure</tt>.
+      #
+      # @return [self]
       def failure!(message = nil, options = {})
         ensure_empty_status!
 
@@ -96,6 +110,9 @@ module AuxiliaryRails
         self
       end
 
+      # Sets command's status to <tt>success</tt>.
+      #
+      # @return [self]
       def success!
         ensure_empty_errors!
         ensure_empty_status!

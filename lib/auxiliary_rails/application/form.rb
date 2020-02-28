@@ -2,6 +2,7 @@ require 'active_model'
 
 module AuxiliaryRails
   module Application
+    # @abstract
     class Form
       include ActiveModel::Model
       include ActiveModel::Attributes
@@ -9,7 +10,9 @@ module AuxiliaryRails
       include AuxiliaryRails::Concerns::Performable
 
       class << self
-        # Method for ActiveModel::Translation
+        # Defines `scope` for <tt>ActiveModel::Translation</tt>
+        #
+        # @return [Symbol]
         def i18n_scope
           :forms
         end
