@@ -1,5 +1,5 @@
 RSpec.describe AuxiliaryRails::Application::Command do
-  describe '#call' do
+  describe '.call' do
     subject(:cmd_class) { described_class }
 
     it 'raises NotImplementedError exception' do
@@ -7,7 +7,7 @@ RSpec.describe AuxiliaryRails::Application::Command do
     end
   end
 
-  describe '.call' do
+  describe '#call' do
     subject(:cmd) { described_class.new }
 
     it 'raises NotImplementedError exception' do
