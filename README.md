@@ -194,6 +194,63 @@ else
 end
 ```
 
+### Query Objects
+
+```ruby
+# app/queries/application_query.rb
+class ApplicationQuery < AuxiliaryRails::Application::Query
+end
+
+# app/queries/authors_query.rb
+class AuthorsQuery < ApplicationQuery
+  default_relation Author.all
+
+  option :name_like, optional: true
+  option :with_books, optional: true
+
+  def perform
+    if recent == true
+      # equivalent to `@query = @query.order(:created_at)`:
+      query order(:created_at)
+    end
+
+    if name_like.present?
+      query with_name_like(name_like)
+    end
+  end
+
+  private
+
+  def with_name_like(value)
+    where('authors.name LIKE ?', "%#{value}%")
+  end
+end
+
+# app/queries/authors_with_books_query.rb
+class AuthorsWithBooksQuery < AuthorsQuery
+  option :min_book_count, default: { 3 }
+
+  def perform
+    query joins(:books)
+      .group(:author_id)
+      .having('COUNT(books.id) > ?', min_book_count)
+  end
+end
+
+### Usage ###
+
+# it is possible to wrap query object in a scope and use as a regular scope
+# app/models/inmate.rb
+class Author < ApplicationRecord
+  scope :name_like, ->(value) { AuthorsQuery.call(name_like: value) }
+end
+
+authors = Author.name_like('Arthur')
+
+# or call query directly
+authors = AuthorsWithBooksQuery.call(min_book_count: 10)
+```
+
 ### View Helpers
 
 ```ruby
