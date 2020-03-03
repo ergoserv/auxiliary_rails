@@ -15,6 +15,9 @@ AllCops:
 Layout/ArgumentAlignment:
   EnforcedStyle: with_fixed_indentation
 
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
 #################### Metrics ##############################
 
 Metrics/BlockLength:
@@ -23,6 +26,8 @@ Metrics/BlockLength:
 
 #################### RSpec ################################
 
+RSpec/ExampleLength:
+  Max: 10
 
 RSpec/MultipleExpectations:
   Max: 3
