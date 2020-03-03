@@ -9,7 +9,7 @@ module AuxiliaryRails
     REPOSITORY_URL =
       'https://raw.githubusercontent.com/ergoserv/' \
         'auxiliary_rails/develop/templates'
-      .freeze
+        .freeze
 
     desc 'new APP_PATH', 'Create Rails application from template'
     long_desc <<-LONGDESC
