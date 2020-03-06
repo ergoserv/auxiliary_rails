@@ -43,16 +43,6 @@ module AuxiliaryRails
         end
       end
 
-      def on(status, &_block)
-        ensure_execution!
-
-        return self unless status?(status)
-
-        yield(self) if block_given?
-
-        self
-      end
-
       protected
 
       # Shortcut reader for attributes defined by <tt>Dry::Initializer</tt>

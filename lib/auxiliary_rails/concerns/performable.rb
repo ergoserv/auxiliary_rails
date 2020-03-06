@@ -53,6 +53,22 @@ module AuxiliaryRails
         status?(:success)
       end
 
+      # Provides ability to execude block of the code depending on
+      # command execution status
+      #
+      # @param status [Symol] Desired command status
+      # @param &_block Code to be executed if status matches
+      # @return [self]
+      def on(status, &_block)
+        ensure_execution!
+
+        return self unless status?(status)
+
+        yield(self) if block_given?
+
+        self
+      end
+
       # Shortcut for <tt>ActiveRecord::Base.transaction</tt>
       def transaction(&block)
         ActiveRecord::Base.transaction(&block) if block_given?
