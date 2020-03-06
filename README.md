@@ -29,6 +29,8 @@ Or install it yourself as:
 
 ## Usage
 
+- [API documentation](https://www.rubydoc.info/gems/auxiliary_rails)
+
 ### Rails Application Templates
 
 Install gem into the system (e.g. using `gem install auxiliary_rails`) then:
