@@ -1,10 +1,12 @@
 require 'active_support/concern'
+require 'auxiliary_rails/concerns/errorable'
 
 module AuxiliaryRails
   module Concerns
     module Performable
       extend ActiveSupport::Concern
       include ActiveModel::Validations
+      include AuxiliaryRails::Concerns::Errorable
 
       class_methods do
         def call(*args)
@@ -97,21 +99,6 @@ module AuxiliaryRails
         return if performable_status.present?
 
         error!("`#{self.class}` was not executed yet.")
-      end
-
-      def error!(message = nil)
-        message ||= "`#{self.class}` raised error."
-        raise error_class, message
-      end
-
-      if defined?(ApplicationError)
-        def error_class
-          ApplicationError
-        end
-      else
-        def error_class
-          AuxiliaryRails::Application::Error
-        end
       end
 
       # Sets command's status to <tt>failure</tt>.

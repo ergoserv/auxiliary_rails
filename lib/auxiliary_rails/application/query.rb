@@ -1,3 +1,4 @@
+require 'auxiliary_rails/concerns/errorable'
 require 'dry/core/class_attributes'
 require 'dry-initializer'
 
@@ -6,6 +7,7 @@ module AuxiliaryRails
     class Query
       extend Dry::Core::ClassAttributes
       extend Dry::Initializer
+      include AuxiliaryRails::Concerns::Errorable
 
       defines :default_relation
 
@@ -52,15 +54,6 @@ module AuxiliaryRails
         end
       end
       # rubocop:enable Metrics/AbcSize, Style/GuardClause
-
-      def error!(message = nil)
-        raise error_class,
-          "`#{self.class}` #{message || 'Query raised an error.'}"
-      end
-
-      def error_class
-        AuxiliaryRails::Application::Error
-      end
 
       def queriable_object?(object)
         object.is_a?(ActiveRecord::Relation)
