@@ -1,17 +1,22 @@
 # AuxiliaryRails Changelog
 
-## [Unreleased]
+## v0.3.0
 
 ### Added
+- Form Objects
+- Query Objects
+- Performable concern
+- YARD docs and link to API documentation
 - Commands usage examples
 - Commands: `arguments` helper to get hash of all `param`s
 
 ### Changed
+- Namespace `Application` instead of `Abstract` prefixes for classes
 - Commands migrate from `#call` to `#perform` method
 - Commands: force validations
 
 ### Removed
-- RuboCop generator, replaces with `rubocop-ergoserv` gem
+- RuboCop generator replaced with `rubocop-ergoserv` gem
 
 ## v0.2.0
 
