@@ -30,7 +30,7 @@ module AuxiliaryRails
     def new(app_path)
       run "rails new #{app_path} " \
         "--database=#{options[:database]} " \
-        "--template=#{rails_template_path(options[:template])}" \
+        "--template=#{rails_template_path(options[:template])} " \
         '--skip-action-cable ' \
         '--skip-coffee ' \
         '--skip-test ' \
