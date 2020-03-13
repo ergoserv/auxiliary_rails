@@ -35,7 +35,6 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency 'bundler', '~> 2.0'
   spec.add_development_dependency 'pry'
-  spec.add_development_dependency 'rails', '>= 5.2', '< 7'
   spec.add_development_dependency 'rake'
   spec.add_development_dependency 'rspec', '~> 3.8'
   spec.add_development_dependency 'rubocop', '~> 0.80'
@@ -45,5 +44,6 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'dry-core'
   spec.add_runtime_dependency 'dry-initializer'
   spec.add_runtime_dependency 'dry-initializer-rails'
+  spec.add_runtime_dependency 'rails', '>= 5.2', '< 7'
   spec.add_runtime_dependency 'thor'
 end

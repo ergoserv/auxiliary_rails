@@ -5,6 +5,7 @@ PATH
       dry-core
       dry-initializer
       dry-initializer-rails
+      rails (>= 5.2, < 7)
       thor
 
 GEM
@@ -186,7 +187,6 @@ DEPENDENCIES
   auxiliary_rails!
   bundler (~> 2.0)
   pry
-  rails (>= 5.2, < 7)
   rake
   rspec (~> 3.8)
   rubocop (~> 0.80)
