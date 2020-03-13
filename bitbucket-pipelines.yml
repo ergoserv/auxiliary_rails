@@ -1,0 +1,35 @@
+image: ruby:2.6.5
+
+definitions:
+  caches:
+    bundler: vendor/bundle
+
+pipelines:
+  default:
+    - step:
+        name: Build
+        caches:
+          - bundler
+        script:
+            - gem install bundler
+            - bundle config set path vendor/bundle
+            - bundle install
+    - parallel:
+      - step:
+          name: RSpec
+          caches:
+            - bundler
+          script:
+            - gem install bundler
+            - bundle config set path vendor/bundle
+            - bundle install
+            - bundle exec rspec
+      - step:
+          name: RuboCop
+          caches:
+            - bundler
+          script:
+            - gem install bundler
+            - bundle config set path vendor/bundle
+            - bundle install
+            - bundle exec rubocop
