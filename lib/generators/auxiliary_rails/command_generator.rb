@@ -38,7 +38,7 @@ module AuxiliaryRails
     end
 
     def command_spec_path
-      command_file_path.gsub(/^app\//, 'spec/')
+      command_file_path.gsub(%r{^app/}, 'spec/')
     end
   end
 end
