@@ -22,13 +22,6 @@ file '.rubocop.yml', <<~FILE
       - config/default.yml
 FILE
 
-file 'bin/rubocop', <<~FILE
-  #!/usr/bin/env bash
-
-  bundle exec rubocop "$@"
-FILE
-chmod 'bin/rubocop', 0o755
-
 run 'touch .env'
 append_file '.gitignore', <<~FILE
   .env*.local
@@ -58,6 +51,7 @@ end
 after_bundle do
   # ensure using the latest versions of gems
   run 'bundle update'
+  run 'bundle binstubs rubocop'
 
   generate :controller, 'pages', 'home',
     '--no-assets',
