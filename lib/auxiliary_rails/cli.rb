@@ -33,8 +33,7 @@ module AuxiliaryRails
         "--template=#{rails_template_path(options[:template])} " \
         '--skip-action-cable ' \
         '--skip-coffee ' \
-        '--skip-test ' \
-        '--skip-webpack-install'
+        '--skip-test '
     end
 
     private

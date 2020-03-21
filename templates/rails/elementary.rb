@@ -35,7 +35,6 @@ gem_group :development, :test do
   gem 'dotenv-rails'
   gem 'factory_bot_rails'
   gem 'faker'
-  gem 'pry-byebug'
   gem 'pry-rails'
   gem 'rspec-rails'
   gem 'rubocop-ergoserv',
@@ -53,12 +52,12 @@ after_bundle do
   run 'bundle update'
   run 'bundle binstubs rubocop'
 
-  generate :controller, 'pages', 'home',
+  generate 'rspec:install'
+
+  generate 'controller', 'pages', 'home',
     '--no-assets',
     '--no-helper',
     '--no-test-framework',
     '--skip-routes'
   route "root to: 'pages#home'"
-
-  generate 'rspec:install'
 end
