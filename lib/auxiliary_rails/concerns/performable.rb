@@ -20,7 +20,7 @@ module AuxiliaryRails
         if options[:validate!] == true
           validate!
         elsif options[:validate] != false && invalid?
-          return failure!(:validation_failed)
+          return failure!
         end
 
         perform
