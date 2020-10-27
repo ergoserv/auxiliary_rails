@@ -2,8 +2,13 @@
 
 ## [Unreleased]
 
+## v0.3.1
+
 ### Added
 - Errorable concern
+
+### Changed
+- Remove validation failed default error #25
 
 ## v0.3.0
 

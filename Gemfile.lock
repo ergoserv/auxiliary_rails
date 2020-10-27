@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    auxiliary_rails (0.3.0)
+    auxiliary_rails (0.3.1)
       dry-core
       dry-initializer
       dry-initializer-rails
@@ -194,4 +194,4 @@ DEPENDENCIES
   rubocop-rspec
 
 BUNDLED WITH
-   2.0.2
+   2.1.4
