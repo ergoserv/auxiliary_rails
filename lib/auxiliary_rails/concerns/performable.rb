@@ -1,4 +1,5 @@
 require 'active_support/concern'
+require 'auxiliary_rails/concerns/callable'
 require 'auxiliary_rails/concerns/errorable'
 
 module AuxiliaryRails
@@ -6,13 +7,8 @@ module AuxiliaryRails
     module Performable
       extend ActiveSupport::Concern
       include ActiveModel::Validations
+      include AuxiliaryRails::Concerns::Callable
       include AuxiliaryRails::Concerns::Errorable
-
-      class_methods do
-        def call(*args)
-          new(*args).call
-        end
-      end
 
       def call(options = {})
         ensure_empty_status!
@@ -59,7 +55,7 @@ module AuxiliaryRails
       # command execution status
       #
       # @param status [Symol] Desired command status
-      # @param &_block Code to be executed if status matches
+      # @param _block Code to be executed if status matches
       # @return [self]
       def on(status, &_block)
         ensure_execution!
