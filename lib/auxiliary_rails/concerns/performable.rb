@@ -58,11 +58,7 @@ module AuxiliaryRails
       # @param _block Code to be executed if status matches
       # @return [self]
       def on(status, &_block)
-        ensure_execution!
-
-        return self unless status?(status)
-
-        yield(self) if block_given?
+        yield(self) if status?(status) && block_given?
 
         self
       end
