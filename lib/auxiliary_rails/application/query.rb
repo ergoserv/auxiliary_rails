@@ -28,6 +28,10 @@ module AuxiliaryRails
 
         perform
 
+        if !queriable_object?(query)
+          error!('Invalid class of resulted query')
+        end
+
         query
       end
 
