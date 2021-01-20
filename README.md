@@ -11,12 +11,9 @@ Collection of classes, configs, scripts, generators for Ruby on Rails helping yo
 Add one of these lines to your application's `Gemfile`:
 
 ```ruby
-# version released to RubyGems
-gem 'auxiliary_rails'
-# or latest version from the repository
-gem 'auxiliary_rails', git: 'https://github.com/ergoserv/auxiliary_rails'
-# or from a specific branch of the repository
-gem 'auxiliary_rails', github: 'ergoserv/auxiliary_rails', branch: 'develop'
+#Gem version for rails 5.0
+
+gem 'auxiliary_rails', github: 'ergoserv/auxiliary_rails', branch: 'rails-5.0'
 ```
 
 And then execute:
