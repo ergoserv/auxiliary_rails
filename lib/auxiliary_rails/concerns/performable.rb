@@ -59,21 +59,21 @@ module AuxiliaryRails
       # command execution status
       #
       # @param status [Symol] Desired command status
-      # @param &_block Code to be executed if status matches
+      # @param &block Code to be executed if status matches
       # @return [self]
-      def on(status, &_block)
+      def on(status, &block)
         ensure_execution!
 
         return self unless status?(status)
 
-        yield(self) if block_given?
+        yield(self) if block
 
         self
       end
 
       # Shortcut for <tt>ActiveRecord::Base.transaction</tt>
       def transaction(&block)
-        ActiveRecord::Base.transaction(&block) if block_given?
+        ActiveRecord::Base.transaction(&block) if block
       end
 
       protected

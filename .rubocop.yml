@@ -10,11 +10,16 @@ AllCops:
     - bin/rubocop
     - lib/generators/auxiliary_rails/templates/**/*
     - vendor/**/* # fix for CI
+  NewCops: enable
+  TargetRubyVersion: 2.5
 
 #################### Layout ##############################
 
 Layout/ArgumentAlignment:
   EnforcedStyle: with_fixed_indentation
+
+Layout/LineEndStringConcatenationIndentation:
+  EnforcedStyle: indented
 
 Layout/MultilineMethodCallIndentation:
   EnforcedStyle: indented
@@ -22,7 +27,7 @@ Layout/MultilineMethodCallIndentation:
 #################### Metrics ##############################
 
 Metrics/BlockLength:
-  ExcludedMethods:
+  IgnoredMethods:
     - describe
 
 #################### RSpec ################################
@@ -36,6 +41,9 @@ RSpec/MultipleExpectations:
 #################### Style ###############################
 
 Style/Documentation:
+  Enabled: false
+
+Style/IfUnlessModifier:
   Enabled: false
 
 Style/FrozenStringLiteralComment:

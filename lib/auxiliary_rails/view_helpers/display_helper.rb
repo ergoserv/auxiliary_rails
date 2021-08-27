@@ -20,10 +20,10 @@ module AuxiliaryRails
         end
 
         if resource.respond_to?(:model_name) && resource.respond_to?(:id)
-          "#{resource.model_name.human} ##{resource.id}"
-        else
-          resource.to_s
+          return "#{resource.model_name.human} ##{resource.id}"
         end
+
+        resource.to_s
       end
     end
   end

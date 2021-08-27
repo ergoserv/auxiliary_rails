@@ -11,7 +11,7 @@ module AuxiliaryRails
 
       defines :default_relation
 
-      option :relation, default: proc { nil }
+      option :relation, default: proc {}
 
       def self.call(*args)
         new(*args).call
@@ -41,7 +41,7 @@ module AuxiliaryRails
 
       private
 
-      # rubocop:disable Metrics/AbcSize, Style/GuardClause
+      # rubocop:disable Style/GuardClause
       def ensure_proper_relation_types!
         if self.class.default_relation.nil?
           error!('Undefined `default_relation`')
@@ -53,7 +53,7 @@ module AuxiliaryRails
           error!('Invalid class of `relation` option')
         end
       end
-      # rubocop:enable Metrics/AbcSize, Style/GuardClause
+      # rubocop:enable Style/GuardClause
 
       def queriable_object?(object)
         object.is_a?(ActiveRecord::Relation)
