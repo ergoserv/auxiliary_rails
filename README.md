@@ -81,8 +81,8 @@ class RegisterUserCommand < ApplicationCommand
   param :email
   param :password
 
-  # Define the results of the command
-  # using `attr_reader` and set it as a regular instance var inside the command
+  # Define the results of the command using `attr_reader`
+  # and set it as a regular instance var inside the command
   attr_reader :user
 
   # Regular Active Model Validations can be used to validate params
@@ -90,9 +90,11 @@ class RegisterUserCommand < ApplicationCommand
   # Use #valid?, #invalid?, #validate! methods to engage validations
   validates :password, length: { in: 8..32 }
 
-  # Define the only public method `#perform`
-  # where command's flow is defined
+  # Define the only public method `#perform` where command's flow is defined
   def perform
+    # Use `return failure!` and `return success!` inside `#perform` method
+    # to control exits from the command with appropriate status.
+
     # Use `return failure!` to exit from the command with failure
     return failure! if registration_disabled?
 
@@ -100,27 +102,27 @@ class RegisterUserCommand < ApplicationCommand
     transaction do
       # Keep the `#perform` method short and clean, put all the steps, actions
       # and business logic into meaningful and self-explanatory methods
-      create_user
+      @user = create_user
 
       # Use `error!` method to interrupt the flow raising an error
-      error! unless @user.persistent?
+      error! unless user.persistent?
 
-      send_notification
+      send_notifications
       # ...
     end
 
-    # Always end the `#perform` method with `success!`
-    # this will set the proper status and allow to chain command methods.
+    # Always end the `#perform` method with `success!`.
+    # It will set the proper command's execution status.
     success!
   end
 
   private
 
   def create_user
-    @user = User.create(email: email, password: password)
+    User.create(email: email, password: password)
   end
 
-  def send_notification
+  def send_notifications
     # ...
   end
 end
@@ -252,7 +254,7 @@ end
 ### Usage ###
 
 # it is possible to wrap query object in a scope and use as a regular scope
-# app/models/inmate.rb
+# app/models/author.rb
 class Author < ApplicationRecord
   scope :name_like, ->(value) { AuthorsQuery.call(name_like: value) }
 end
@@ -268,6 +270,7 @@ authors = AuthorsWithBooksQuery.call(min_book_count: 10)
 ```ruby
 current_controller?(*ctrl_names)
 current_action?(*action_names)
+display_name(resource)
 ```
 
 ## Development

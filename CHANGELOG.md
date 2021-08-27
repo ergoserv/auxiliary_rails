@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Added
+
+- View helper: `display_name`
+
 ## v0.3.1
 
 ### Added
