@@ -11,12 +11,15 @@ Collection of classes, configs, scripts, generators for Ruby on Rails helping yo
 Add one of these lines to your application's `Gemfile`:
 
 ```ruby
-# version released to RubyGems
+# version released to RubyGems (recommended)
 gem 'auxiliary_rails'
+
 # or latest version from the repository
 gem 'auxiliary_rails', git: 'https://github.com/ergoserv/auxiliary_rails'
-# or from a specific branch of the repository
+# or from a specific branch of the GitHub repository
 gem 'auxiliary_rails', github: 'ergoserv/auxiliary_rails', branch: 'develop'
+# or from a local path (for development and testing purposes)
+gem 'auxiliary_rails', path: '../auxiliary_rails'
 ```
 
 And then execute:
