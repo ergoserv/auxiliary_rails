@@ -4,7 +4,7 @@ module AuxiliaryRails
   class InstallErrorsControllerGenerator < ::Rails::Generators::Base
     source_root File.expand_path('templates/errors_controller', __dir__)
 
-    VIEW_TEMPLATES = ['error', 'not_found_error', 'unacceptable_error']
+    VIEW_TEMPLATES = %w[error not_found_error unacceptable_error].freeze
 
     def copy_controller_file
       copy_file 'errors_controller_template.rb',
@@ -25,7 +25,7 @@ module AuxiliaryRails
     end
 
     def add_exceptions_app_config
-      application 'config.exceptions_app = self.routes'
+      application 'config.exceptions_app = routes'
     end
   end
 end
