@@ -5,6 +5,7 @@
 ### Added
 
 - View helper: `display_name`
+- ErrorsController template (custom error pages)
 
 ## v0.3.1
 

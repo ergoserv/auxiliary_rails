@@ -59,6 +59,7 @@ rails generate auxiliary_rails:install
 # Install one by one
 rails generate auxiliary_rails:install_commands
 rails generate auxiliary_rails:install_errors
+rails generate auxiliary_rails:install_errors_controller
 
 # API resource generator
 rails generate auxiliary_rails:api_resource
