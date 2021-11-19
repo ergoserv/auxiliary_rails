@@ -31,7 +31,7 @@
 - Commands: force validations
 
 ### Removed
-- RuboCop generator replaced with `rubocop-ergoserv` gem
+- RuboCop generator moved to [rubocop-ergoserv](https://github.com/ergoserv/rubocop-ergoserv) gem
 
 ## v0.2.0
 
