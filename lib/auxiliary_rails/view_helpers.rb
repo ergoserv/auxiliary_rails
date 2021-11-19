@@ -1,5 +1,4 @@
-Dir["#{File.expand_path('view_helpers', __dir__)}/*.rb"]
-  .sort.each { |f| require f }
+require 'auxiliary_rails/view_helpers/display_helper'
 
 module AuxiliaryRails
   module ViewHelpers
