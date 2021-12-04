@@ -47,6 +47,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'dry-core'
   spec.add_runtime_dependency 'dry-initializer'
   spec.add_runtime_dependency 'dry-initializer-rails'
+  spec.add_runtime_dependency 'pagy'
   spec.add_runtime_dependency 'rails', '>= 5.2', '< 7'
   spec.add_runtime_dependency 'thor'
 end
