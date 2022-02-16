@@ -72,6 +72,8 @@ rails generate auxiliary_rails:command
 
 Variation of implementation of [Command pattern](https://en.wikipedia.org/wiki/Command_pattern).
 
+Read post [Command Objects - a.k.a Service Objects in Ruby on Rails - The Ergonomic Way](https://www.ergoserv.com/blog/command-objects-aka-service-objects-in-ruby-on-rails-the-ergonomic-way) for more details.
+
 ```ruby
 # app/commands/application_command.rb
 class ApplicationCommand < AuxiliaryRails::Application::Command
