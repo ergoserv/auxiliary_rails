@@ -68,6 +68,16 @@ rails generate auxiliary_rails:api_resource
 rails generate auxiliary_rails:command
 ```
 
+### API
+
+Read article [Building an API](https://github.com/ergoserv/handbook/blob/master/guides/building_api.md) for more details.
+
+Use generator to generate appropriate classes and files (Resource, Entity, Helper, Spec) for the specified end-point:
+
+```sh
+rails generate auxiliary_rails:api_resource
+```
+
 ### Command Objects
 
 Variation of implementation of [Command pattern](https://en.wikipedia.org/wiki/Command_pattern).
