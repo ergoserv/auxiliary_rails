@@ -68,7 +68,7 @@ rails generate auxiliary_rails:api_resource
 rails generate auxiliary_rails:command
 ```
 
-### API
+### API Resources
 
 Read article [Building an API](https://github.com/ergoserv/handbook/blob/master/guides/building_api.md) for more details.
 
