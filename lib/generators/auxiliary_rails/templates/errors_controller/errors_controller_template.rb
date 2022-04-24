@@ -6,10 +6,10 @@ class ErrorsController < ApplicationController
   end
 
   def not_found_error
-    render status: 404
+    render status: :not_found
   end
 
   def unacceptable_error
-    render status: 422
+    render status: :unprocessable_entity
   end
 end
