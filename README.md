@@ -66,6 +66,9 @@ rails generate auxiliary_rails:api_resource
 
 # Command generator
 rails generate auxiliary_rails:command
+
+# Service generator
+rails generate auxiliary_rails:service
 ```
 
 ### API Resources
