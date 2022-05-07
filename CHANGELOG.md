@@ -5,7 +5,9 @@
 ### Added
 
 - View helper: `display_name`
-- ErrorsController template (custom error pages)
+- `ErrorsController` template (custom error pages)
+- `AuxiliaryRails::Concerns::ServiceConfigurable` added
+- 
 
 ## v0.3.1
 
