@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe <%= command_class_name %> do
+RSpec.describe <%= command_class_name %> do
   describe '#call' do
     it 'succeeds' do
       # TODO: implement spec for command

@@ -1,3 +1,4 @@
+require 'rails/railtie'
 require 'auxiliary_rails/view_helpers'
 
 module AuxiliaryRails

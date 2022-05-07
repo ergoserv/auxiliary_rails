@@ -1,4 +1,5 @@
 require 'active_model'
+require 'auxiliary_rails/concerns/performable'
 
 module AuxiliaryRails
   module Application
