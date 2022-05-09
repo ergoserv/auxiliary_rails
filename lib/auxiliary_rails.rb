@@ -2,6 +2,7 @@ require 'auxiliary_rails/application/command'
 require 'auxiliary_rails/application/form'
 require 'auxiliary_rails/application/error'
 require 'auxiliary_rails/application/query'
+require 'auxiliary_rails/concerns/service_configurable'
 require 'auxiliary_rails/railtie'
 require 'auxiliary_rails/version'
 
