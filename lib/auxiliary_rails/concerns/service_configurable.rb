@@ -14,7 +14,7 @@ module AuxiliaryRails
           service_name = name.underscore
 
           # load from service config file
-          if File.exist?(Rails.root.join("config/services/#{service_name}.yml"))
+          if Rails.root.join("config/services/#{service_name}.yml").exist?
             return @config = Rails.application.config_for("services/#{service_name}")
           end
 
