@@ -13,6 +13,11 @@ module AuxiliaryRails
 
           service_name = name.underscore
 
+          # load from constant
+          if const_defined?(:CONFIG)
+            return @config = ActiveSupport::OrderedOptions.new.update(const_get(:CONFIG))
+          end
+
           # load from service config file
           if Rails.root.join("config/services/#{service_name}.yml").exist?
             return @config = Rails.application.config_for("services/#{service_name}")
@@ -24,11 +29,6 @@ module AuxiliaryRails
             if app_config.dig(:services, service_name).present?
               return @config = app_config[:services][service_name]
             end
-          end
-
-          # load from constant
-          if const_defined?(:CONFIG)
-            return @config = ActiveSupport::OrderedOptions.new.update(const_get(:CONFIG))
           end
 
           raise AuxiliaryRails::Error,
