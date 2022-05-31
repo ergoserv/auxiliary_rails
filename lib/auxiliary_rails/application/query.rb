@@ -13,8 +13,13 @@ module AuxiliaryRails
 
       option :relation, default: proc {}
 
-      def self.call(*args)
-        new(*args).call
+      class << self
+        # Initializes object and runs <tt>#call</tt> method.
+        #
+        # @return [self]
+        def call(*args, **kws)
+          new(*args, **kws).call
+        end
       end
 
       def call

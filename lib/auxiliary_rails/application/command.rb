@@ -28,13 +28,6 @@ module AuxiliaryRails
         #   @param name [Symbol]
         #   @param options [Hash]
 
-        # Initializes command with <tt>args</tt> and runs <tt>#call</tt> method.
-        #
-        # @return [self]
-        def call(*args)
-          new(*args).call
-        end
-
         # Defines `scope` for <tt>ActiveModel::Translation</tt>
         #
         # @return [Symbol]

@@ -9,8 +9,11 @@ module AuxiliaryRails
       include AuxiliaryRails::Concerns::Errorable
 
       class_methods do
-        def call(*args)
-          new(*args).call
+        # Initializes object and runs <tt>#call</tt> method.
+        #
+        # @return [self]
+        def call(*args, **kws)
+          new(*args, **kws).call
         end
       end
 
