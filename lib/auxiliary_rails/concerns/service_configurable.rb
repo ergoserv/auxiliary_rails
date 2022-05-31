@@ -11,12 +11,12 @@ module AuxiliaryRails
         def config
           return @config if @config.present?
 
-          service_name = name.underscore
-
           # load from constant
           if const_defined?(:CONFIG)
             return @config = ActiveSupport::OrderedOptions.new.update(const_get(:CONFIG))
           end
+
+          service_name = name.underscore
 
           # load from service config file
           if Rails.root.join("config/services/#{service_name}.yml").exist?
