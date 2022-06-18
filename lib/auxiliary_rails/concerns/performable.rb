@@ -74,11 +74,6 @@ module AuxiliaryRails
         self
       end
 
-      # Shortcut for <tt>ActiveRecord::Base.transaction</tt>
-      def transaction(&block)
-        ActiveRecord::Base.transaction(&block) if block
-      end
-
       protected
 
       attr_accessor :performable_status
@@ -125,6 +120,11 @@ module AuxiliaryRails
 
         self.performable_status = :success
         self
+      end
+
+      # Shortcut for <tt>ActiveRecord::Base.transaction</tt>
+      def transaction(&block)
+        ActiveRecord::Base.transaction(&block) if block
       end
     end
   end
