@@ -1,7 +1,7 @@
 module <%= service_module_name %>
-  module_function
+  extend AuxiliaryRails::Application::Service
 
-  include AuxiliaryRails::Concerns::ServiceConfigurable
+  module_function
 
   CONFIG = {
     key: 'value'

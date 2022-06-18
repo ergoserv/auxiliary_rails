@@ -231,15 +231,13 @@ end
 
 Read [Service Modules](https://github.com/ergoserv/handbook/blob/master/guides/service_modules.md) for more details.
 
-#### Service Generator
+**Service Generator**
 
 ```sh
 rails generate auxiliary_rails:service
 ```
 
-#### ServiceConfigurable
-
-`ServiceConfigurable` - is a mixing which looks for service configs and load the first found from:
+**Service Config** - provides a unified access to a service configs and loads the first found from:
 
 - Constant (`MyService::CONFIG`)
 - Application config file (`config/settings.yml`, see gem [`config`](https://github.com/rubyconfig/config))
@@ -248,7 +246,7 @@ rails generate auxiliary_rails:service
 ```ruby
 # app/services/my_service.rb
 module MyService
-  include AuxiliaryRails::Concerns::ServiceConfigurable
+  extend AuxiliaryRails::Application::Service
 end
 
 # usage
