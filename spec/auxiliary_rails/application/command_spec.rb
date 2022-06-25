@@ -13,6 +13,18 @@ RSpec.describe AuxiliaryRails::Application::Command do
     it 'raises NotImplementedError exception' do
       expect { cmd.call }.to raise_error NotImplementedError
     end
+
+    context 'when command failied' do
+      subject(:cmd) { FailedCommand.new }
+
+      before do
+        stub_failed_command
+      end
+
+      it do
+        expect { cmd.call }.to change(cmd.errors, :count).from(0).to(1)
+      end
+    end
   end
 
   describe '#on' do
@@ -25,11 +37,17 @@ RSpec.describe AuxiliaryRails::Application::Command do
         end
     end
 
-    it 'provides interface to command object inside block' do
-      SampleCommands::FailureWithErrorsCommand.call
-        .on(:failure) do |cmd|
-          expect(cmd.errors).to be_any
-        end
+    context 'when command has failied' do
+      before do
+        stub_failed_command
+      end
+
+      it 'provides interface to command object inside block' do
+        FailedCommand.call
+          .on(:failure) do |cmd|
+            expect(cmd.errors).to be_any
+          end
+      end
     end
   end
 end

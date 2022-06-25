@@ -45,16 +45,6 @@ RSpec.describe SampleCommands do
     end
   end
 
-  describe 'FailureWithErrorsCommand' do
-    subject(:cmd) { SampleCommands::FailureWithErrorsCommand.new }
-
-    describe '#call' do
-      it do
-        expect { cmd.call }.to change(cmd.errors, :count).from(0).to(1)
-      end
-    end
-  end
-
   describe 'ValidationErrorsCommand' do
     subject(:cmd) { SampleCommands::ValidationErrorsCommand.new(age) }
 

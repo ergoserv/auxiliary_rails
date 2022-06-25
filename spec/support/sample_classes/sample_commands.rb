@@ -19,13 +19,6 @@ module SampleCommands
     end
   end
 
-  class FailureWithErrorsCommand < AuxiliaryRails::Application::Command
-    def perform
-      errors.add(:base, :test_failure_message)
-      failure!
-    end
-  end
-
   class ValidationErrorsCommand < AuxiliaryRails::Application::Command
     param :age
 
