@@ -83,17 +83,6 @@ rails generate auxiliary_rails:api_resource
 
 ## Application
 
-### Error Objects
-
-Custom error objects.
-Read article [Error Handling](https://github.com/ergoserv/handbook/blob/master/guides/error_handling.md) for more details.
-
-```ruby
-# app/errors/application_error.rb
-class ApplicationCommand < AuxiliaryRails::Application::Error
-end
-```
-
 ### Command Objects
 
 Variation of implementation of [Command pattern](https://refactoring.guru/design-patterns/command).
@@ -184,6 +173,17 @@ class RegistrationsController
 end
 ```
 
+### Error Objects
+
+Custom error objects.
+Read article [Error Handling](https://github.com/ergoserv/handbook/blob/master/guides/error_handling.md) for more details.
+
+```ruby
+# app/errors/application_error.rb
+class ApplicationCommand < AuxiliaryRails::Application::Error
+end
+```
+
 ### Form Objects
 
 ```ruby
@@ -238,32 +238,6 @@ if form.success?
 else
   @errors = form.errors
 end
-```
-
-### Service Modules
-
-Read [Service Modules](https://github.com/ergoserv/handbook/blob/master/guides/service_modules.md) for more details.
-
-**Service Generator**
-
-```sh
-rails generate auxiliary_rails:service
-```
-
-**Service Config** - provides a unified access to a service configs and loads the first found from:
-
-- Constant (`MyService::CONFIG`)
-- Application config file (`config/settings.yml`, see gem [`config`](https://github.com/rubyconfig/config))
-- Service config file (`config/services/my_service.yml`)
-
-```ruby
-# app/services/my_service.rb
-module MyService
-  extend AuxiliaryRails::Application::Service
-end
-
-# usage
-MyService.config.some_key
 ```
 
 ### Query Objects
@@ -321,6 +295,32 @@ authors = Author.name_like('Arthur')
 
 # or call query directly
 authors = AuthorsWithBooksQuery.call(min_book_count: 10)
+```
+
+### Service Modules
+
+Read [Service Modules](https://github.com/ergoserv/handbook/blob/master/guides/service_modules.md) for more details.
+
+**Service Generator**
+
+```sh
+rails generate auxiliary_rails:service
+```
+
+**Service Config** - provides a unified access to a service configs and loads the first found from:
+
+- Constant (`MyService::CONFIG`)
+- Application config file (`config/settings.yml`, see gem [`config`](https://github.com/rubyconfig/config))
+- Service config file (`config/services/my_service.yml`)
+
+```ruby
+# app/services/my_service.rb
+module MyService
+  extend AuxiliaryRails::Application::Service
+end
+
+# usage
+MyService.config.some_key
 ```
 
 ### View Helpers
