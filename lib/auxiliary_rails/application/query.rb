@@ -4,6 +4,7 @@ require 'dry-initializer'
 
 module AuxiliaryRails
   module Application
+    # @abstract
     class Query
       extend Dry::Core::ClassAttributes
       extend Dry::Initializer
