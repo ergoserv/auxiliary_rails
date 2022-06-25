@@ -1,21 +1,21 @@
 module AuxiliaryRails
   module Concerns
     module Errorable
-      # extend ActiveSupport::Concern
+      extend ActiveSupport::Concern
+
+      class_methods do
+        def error_class
+          if Object.const_defined?(:ApplicationError)
+            ApplicationError
+          else
+            AuxiliaryRails::Application::Error
+          end
+        end
+      end
 
       def error!(message = nil)
         message ||= "`#{self.class}` raised error."
-        raise error_class, message
-      end
-
-      if defined?(ApplicationError)
-        def error_class
-          ApplicationError
-        end
-      else
-        def error_class
-          AuxiliaryRails::Application::Error
-        end
+        raise self.class.error_class, message
       end
     end
   end
