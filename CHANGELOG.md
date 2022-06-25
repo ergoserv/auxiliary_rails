@@ -4,10 +4,9 @@
 
 ### Added
 
-- View helper: `display_name`
-- `ErrorsController` template (custom error pages)
 - `AuxiliaryRails::Application::Service` added
-- Service Module generator
+- `ErrorsController` template (custom error pages)
+- View helper: `display_name`
 
 ## v0.3.1
 

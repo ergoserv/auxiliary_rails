@@ -81,9 +81,22 @@ Use generator to generate appropriate classes and files (Resource, Entity, Helpe
 rails generate auxiliary_rails:api_resource
 ```
 
+## Application
+
+### Error Objects
+
+Custom error objects.
+Read article [Error Handling](https://github.com/ergoserv/handbook/blob/master/guides/error_handling.md) for more details.
+
+```ruby
+# app/errors/application_error.rb
+class ApplicationCommand < AuxiliaryRails::Application::Error
+end
+```
+
 ### Command Objects
 
-Variation of implementation of [Command pattern](https://en.wikipedia.org/wiki/Command_pattern).
+Variation of implementation of [Command pattern](https://refactoring.guru/design-patterns/command).
 
 Read post [Command Objects - a.k.a Service Objects in Ruby on Rails - The Ergonomic Way](https://www.ergoserv.com/blog/command-objects-aka-service-objects-in-ruby-on-rails-the-ergonomic-way) for more details.
 
