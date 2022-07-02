@@ -5,12 +5,31 @@ module AuxiliaryRails
       attr_accessor :context
       attr_reader :exception, :severity
 
+      class << self
+        def i18n_scope
+          "errors.#{name.underscore}"
+        end
+
+        # @return [self] Wraps exception into a new Application Error object
+        def wrap(exception, context: nil)
+          new(exception.message, context: context, exception: exception)
+        end
+      end
+
       def initialize(message = nil, context: nil, exception: nil, severity: nil)
         super message
 
-        @context = context || {}
-        @exception = exception
-        @severity = severity || :error
+        self.context = default_context.merge(context || {})
+        self.exception = exception
+        self.severity = severity || default_severity
+      end
+
+      def default_context
+        {}
+      end
+
+      def default_severity
+        :error
       end
 
       def friendly_message
@@ -23,16 +42,9 @@ module AuxiliaryRails
         raise NotImplementedError
       end
 
-      class << self
-        def i18n_scope
-          "errors.#{name.underscore}"
-        end
+      private
 
-        # @return [self] Wraps exception into a new Application Error object
-        def wrap(exception, context: nil)
-          new(exception.message, context: context, exception: exception)
-        end
-      end
+      attr_writer :exception, :severity
     end
   end
 end
