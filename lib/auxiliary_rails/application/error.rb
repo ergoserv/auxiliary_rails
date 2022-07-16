@@ -11,17 +11,17 @@ module AuxiliaryRails
         end
 
         # @return [self] Wraps exception into a new Application Error object
-        def wrap(exception, context: nil)
-          new(exception.message, context: context, exception: exception)
+        def wrap(exception, context: {}, severity: nil)
+          new(exception.message, context: context, exception: exception, severity: severity)
         end
       end
 
-      def initialize(message = nil, context: nil, exception: nil, severity: nil)
+      def initialize(message = nil, context: {}, exception: nil, severity: nil)
         super message
 
         self.context = default_context.merge(context || {})
         self.exception = exception
-        self.severity = severity || default_severity
+        self.severity = severity&.to_sym || default_severity
       end
 
       def default_context
