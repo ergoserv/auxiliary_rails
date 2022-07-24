@@ -1,3 +1,4 @@
+require 'auxiliary_rails/concerns/callable'
 require 'auxiliary_rails/concerns/errorable'
 require 'dry/core/class_attributes'
 require 'dry-initializer'
@@ -8,20 +9,12 @@ module AuxiliaryRails
     class Query
       extend Dry::Core::ClassAttributes
       extend Dry::Initializer
+      include AuxiliaryRails::Concerns::Callable
       include AuxiliaryRails::Concerns::Errorable
 
       defines :default_relation
 
       option :relation, default: proc {}
-
-      class << self
-        # Initializes object and runs <tt>#call</tt> method.
-        #
-        # @return [self]
-        def call(*args, **kws)
-          new(*args, **kws).call
-        end
-      end
 
       def call
         ensure_proper_relation_types!
@@ -35,6 +28,7 @@ module AuxiliaryRails
         query
       end
 
+      # @abstract
       def perform
         raise NotImplementedError
       end

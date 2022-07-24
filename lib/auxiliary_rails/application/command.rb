@@ -28,6 +28,10 @@ module AuxiliaryRails
         #   @param name [Symbol]
         #   @param options [Hash]
 
+        # @!method call(*args, **kws)
+        #   @see AuxiliaryRails::Corcerns::Callable
+        #   @return [self]
+
         # Defines `scope` for <tt>ActiveModel::Translation</tt>
         #
         # @return [Symbol]
