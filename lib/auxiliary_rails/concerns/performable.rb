@@ -1,4 +1,5 @@
 require 'active_support/concern'
+require 'auxiliary_rails/concerns/callable'
 require 'auxiliary_rails/concerns/errorable'
 
 module AuxiliaryRails
@@ -6,16 +7,8 @@ module AuxiliaryRails
     module Performable
       extend ActiveSupport::Concern
       include ActiveModel::Validations
+      include AuxiliaryRails::Concerns::Callable
       include AuxiliaryRails::Concerns::Errorable
-
-      class_methods do
-        # Initializes object and runs <tt>#call</tt> method.
-        #
-        # @return [self]
-        def call(*args, **kws)
-          new(*args, **kws).call
-        end
-      end
 
       def call(options = {})
         ensure_empty_status!
