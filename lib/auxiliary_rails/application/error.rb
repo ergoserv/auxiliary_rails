@@ -42,7 +42,7 @@ module AuxiliaryRails
         raise NotImplementedError
       end
 
-      private
+      protected
 
       attr_writer :exception, :severity
     end

@@ -2,9 +2,13 @@
 
 ## [Unreleased]
 
+## [0.4.0] - 2022-08-28
+
 ### Added
 
+- `AuxiliaryRails::Application::Error` significantly extended
 - `AuxiliaryRails::Application::Service` added
+- `AuxiliaryRails::Concerns::Callable` added
 - `ErrorsController` template (custom error pages)
 - View helper: `display_name`
 
