@@ -180,7 +180,7 @@ Read article [Error Handling](https://github.com/ergoserv/handbook/blob/master/g
 
 ```ruby
 # app/errors/application_error.rb
-class ApplicationCommand < AuxiliaryRails::Application::Error
+class ApplicationError < AuxiliaryRails::Application::Error
 end
 ```
 
@@ -345,7 +345,7 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/ergose
 
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
 
--------------------------------------------------------------------------------
+---
 
 [![alt text](https://raw.githubusercontent.com/ergoserv/auxiliary_rails/master/assets/ErgoServ_horizontalColor@sign+text+bg.png "ErgoServ - Web and Mobile Development Company")](https://www.ergoserv.com)
 
