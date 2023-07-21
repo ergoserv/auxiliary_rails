@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+## [0.4.1] - 2023-07-21
+
+### Fixed
+
+- `AuxiliaryRails::Application::Error` - rename `exception` to `exc`, fixes collision with Ruby's built-in method `exception`
+
 ## [0.4.0] - 2022-08-28
 
 ### Added
