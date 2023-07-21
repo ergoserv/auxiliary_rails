@@ -3,24 +3,24 @@ module AuxiliaryRails
     # @abstract
     class Error < RuntimeError
       attr_accessor :context
-      attr_reader :exception, :severity
+      attr_reader :exc, :severity
 
       class << self
         def i18n_scope
           "errors.#{name.underscore}"
         end
 
-        # @return [self] Wraps exception into a new Application Error object
-        def wrap(exception, context: {}, severity: nil)
-          new(exception.message, context: context, exception: exception, severity: severity)
+        # @return [self] Wraps exception into a new ApplicationError object
+        def wrap(exc, context: {}, severity: nil)
+          new(exc.message, context: context, exc: exc, severity: severity)
         end
       end
 
-      def initialize(message = nil, context: {}, exception: nil, severity: nil)
-        super message
+      def initialize(message = nil, context: {}, exc: nil, severity: nil)
+        super(message)
 
         self.context = default_context.merge(context || {})
-        self.exception = exception
+        self.exc = exc
         self.severity = severity&.to_sym || default_severity
       end
 
@@ -44,7 +44,7 @@ module AuxiliaryRails
 
       protected
 
-      attr_writer :exception, :severity
+      attr_writer :exc, :severity
     end
   end
 end

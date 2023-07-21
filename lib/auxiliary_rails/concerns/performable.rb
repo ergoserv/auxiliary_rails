@@ -73,19 +73,19 @@ module AuxiliaryRails
       def ensure_empty_errors!
         return if errors.empty?
 
-        error!("`#{self.class}` contains errors.")
+        error!("'#{self.class}' contains errors.")
       end
 
       def ensure_empty_status!
         return if performable_status.nil?
 
-        error!("`#{self.class}` was already executed.")
+        error!("'#{self.class}' was already executed.")
       end
 
       def ensure_execution!
         return if performable_status.present?
 
-        error!("`#{self.class}` was not executed yet.")
+        error!("'#{self.class}' was not executed yet.")
       end
 
       # Sets command's status to <tt>failure</tt>.
