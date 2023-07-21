@@ -3,6 +3,7 @@ inherit_from:
 
 require:
   - rubocop-performance
+  - rubocop-rake
   - rubocop-rspec
 
 AllCops:
@@ -24,12 +25,6 @@ Layout/LineEndStringConcatenationIndentation:
 
 Layout/MultilineMethodCallIndentation:
   EnforcedStyle: indented
-
-#################### Metrics ##############################
-
-Metrics/BlockLength:
-  IgnoredMethods:
-    - describe
 
 #################### RSpec ################################
 
