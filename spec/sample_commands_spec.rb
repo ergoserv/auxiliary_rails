@@ -72,4 +72,16 @@ RSpec.describe SampleCommands do
       end
     end
   end
+
+  describe 'FailureMessageErrorsCommand' do
+    subject(:cmd) { SampleCommands::FailureMessageErrorsCommand.new }
+
+    describe '#call' do
+      it do
+        expect(cmd.call).to be_failure
+        expect(cmd.errors.first.options).to eq foo: :bar
+        expect(cmd.errors.full_messages.join(', ')).to eq 'Custom failure message!'
+      end
+    end
+  end
 end
