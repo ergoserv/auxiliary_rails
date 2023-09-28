@@ -94,7 +94,7 @@ module AuxiliaryRails
       def failure!(message = nil, options = {})
         ensure_empty_status!
 
-        errors.add(:base, message, options) if message.present?
+        errors.add(:base, message, **options) if message.present?
 
         self.performable_status = :failure
         self

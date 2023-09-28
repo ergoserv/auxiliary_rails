@@ -32,4 +32,10 @@ module SampleCommands
       success!
     end
   end
+
+  class FailureMessageErrorsCommand < AuxiliaryRails::Application::Command
+    def perform
+      failure!('Custom failure message!', { foo: :bar })
+    end
+  end
 end
