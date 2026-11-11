@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    auxiliary_rails (0.4.1)
+    auxiliary_rails (0.4.2)
       dry-core
       dry-initializer
       dry-initializer-rails
