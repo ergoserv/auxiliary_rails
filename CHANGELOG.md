@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+## [0.4.2] - 2026-11-11
+
+### Fixed
+
+- `failure!` raised `ArgumentError` (wrong number of arguments) on Ruby 3+ and recent Rails, including Rails 8.1, whenever it was called with a message, e.g. `failure!('Message')`. Options are now passed to `errors.add` as keyword arguments
+
 ## [0.4.1] - 2023-07-21
 
 ### Fixed
